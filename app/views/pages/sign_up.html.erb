@@ -1,0 +1,18 @@
+<h1>Create your profile</h1>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.input :username %>
+    <%= f.input :password %>
+    <%= f.input :email %>
+    <%= f.input :bio %>
+    <%= f.input :instruments_played %>
+  </div>
+  <div class="form-inputs">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Home', user_registration_path%>
