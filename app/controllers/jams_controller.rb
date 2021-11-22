@@ -6,7 +6,6 @@ class JamsController < ApplicationController
   end
 
   def show
-    raise
   end
 
   private
