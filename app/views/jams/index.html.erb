@@ -1,0 +1,13 @@
+<% @jams.each do |jam| %>
+  <div class="jam-card">
+    <img src="https://picsum.photos/200">
+    <div>
+      <h2>Title</h2>
+      <p>Description</p>
+      <div>
+        <p><%= jam.location %></p>
+        <p><%= jam.date %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
