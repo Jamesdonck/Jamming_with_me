@@ -3,6 +3,7 @@
   margin-top: 20px;
   height: 150px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.150);
+  transition: transform 0.15s ease-in-out;
   .jam-info {
     display: flex;
     flex-direction: column;
@@ -24,5 +25,19 @@
   }
   a {
     padding-left: 20px;
+  }
+  &:hover {
+     transform: scale(1.03);
+     cursor: default;
+   }
+}
+
+.map-index {
+  padding: 0;
+  iframe {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 0;
   }
 }
