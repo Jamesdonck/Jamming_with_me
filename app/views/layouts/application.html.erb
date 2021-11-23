@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JammingWithMe</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jamming With Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
-    <div class="container">
-      <div class="navbar" target="navbar">
-        <a class="navbar_logo" href="/">  <img src="https://logopond.com/logos/ae60a0843e2b9b42e5e8b244fcd6d979.png" >  </a>
-        <p>Where do you want to join a jam session?</p>
-        <h3 class= "sign-up">Sign Up</h2>
-        <h3>Log In</h2>
-      </div>
-      <%= yield %>
-      <%= render 'shared/footer' %>
-    </div>
+    <%= render 'shared/navbar' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

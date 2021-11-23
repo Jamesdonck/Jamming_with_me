@@ -21,6 +21,14 @@ puts 'Creating users...'
   )
 end
 
+User.create!(
+  username: 'admin',
+  email: 'admin@admin.com',
+  bio: "I am the admin",
+  password: '123123',
+  password_confirmation: '123123'
+)
+
 puts 'Creating jams'
 10.times do
   Jam.create!(
