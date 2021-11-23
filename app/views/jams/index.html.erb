@@ -1,13 +1,23 @@
-<% @jams.each do |jam| %>
-  <div class="jam-card">
-    <img src="https://picsum.photos/200">
-    <div>
-      <h2>Title</h2>
-      <p>Description</p>
-      <div>
-        <p><%= jam.location %></p>
-        <p><%= jam.date %></p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <% @jams.each do |jam| %>
+        <div class="jam-card">
+          <img src="https://picsum.photos/150">
+          <div class="jam-info">
+            <h5><%= jam.title %></h2>
+            <p><%= jam.location %></p>
+            <p><%= jam.date %></p>
+            <div class="d-flex flex-row justify-content-end">
+              <%= link_to 'Show details', root_path %>
+              <%= link_to 'Attend', root_path %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <h1>MAP HERE</h1>
     </div>
   </div>
-<% end %>
+</div>

@@ -2,34 +2,30 @@
   justify-content: space-between;
   background: white;
   height: 60px;
-}
+  img {
+    width: 120px;
+    height: 45px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
 
-
-img {
-  width: 120px;
-  height: 45px;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-
-}
-
-p {
-  border-style: solid;
-  border-width: 1px;
-  color: rgb(173, 171, 171);
-  margin: 4px 5px;
-  padding: 7px 18px;
-  border-radius: 3px;
-}
-
-h3 {
-  background-color: rgb(12, 12, 146);
-  border-radius: 5px;
-  color: white;
-  font-size: 15px;
-  font-weight: lighter;
-  padding: 8px 13px;
+  }
+  p {
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(173, 171, 171);
+    margin: 4px 5px;
+    padding: 7px 18px;
+    border-radius: 3px;
+  }
+  h3 {
+    background-color: rgb(12, 12, 146);
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 8px 13px;
+  }
 }
 
 .sign-up {
