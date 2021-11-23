@@ -1,37 +1,42 @@
-<div class='jam--container'>
-  <iframe
-    width="100%"
-    height="300"
-    style="border:0"
-    loading="lazy"
-    allowfullscreen
-    src="https://www.google.com/maps/embed/v1/place?key=<%=ENV['GOOGLEMAPKEY']%>&q=Space+Needle,Seattle+WA">
-  </iframe>
-  <div class="jam--container--top">
-    <div class="jam--container--top__info">
-      <img src="https://picsum.photos/245/245" alt="">
-      <div class="jam--container--top__info__text">
-        <h5> <%= @jam.title %></h4>
-        <p class='date'> <%= @jam.date %></p>
-        <p> <%= @jam.description %></p>
-      </div>
-    </div>
-    <%= link_to 'Back', jams_path, class:'back--link' %>
-  </div>
-
-  <h3>Atendees:</h3>
-  <% @jam.bookings.each do |session| %>
-  <div class="atendees--container">
-    <div class="atendee--container">
-      <div class="atendee--container--info">
-        <img src="https://picsum.photos/92/92" alt="">
-        <div class="atendee--container--info__text">
-          <h5><%= session.user.username %></h5>
-          <p>attending with <%= session.instrument %> </p>
+<div class="container">
+  <div class='jam--container'>
+    <iframe
+      width="100%"
+      height="300"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen
+      src="https://www.google.com/maps/embed/v1/place?key=<%=ENV['GOOGLEMAPKEY']%>&q=Space+Needle,Seattle+WA">
+    </iframe>
+    <div class="jam--container--top">
+        <div class="jam--container--top__info">
+          <img src="https://picsum.photos/245/245" alt="">
+          <div class="spacer">
+            <div class="jam--container--top__info__text">
+              <h5> <%= @jam.title %></h4>
+              <p class='date'> <%= @jam.date %></p>
+              <p> <%= @jam.description %></p>
+            </div>
+            <%= link_to 'Attend Jam', new_jam_booking_path(@jam.id), class:'btn btn-primary attend' %>
+          </div>
         </div>
-      </div>
-      <a href="#">Show profile</a>
+      <%= link_to 'Back', jams_path, class:'back--link' %>
     </div>
+
+    <h3>Atendees:</h3>
+    <% @jam.bookings.each do |session| %>
+    <div class="atendees--container">
+      <div class="atendee--container">
+        <div class="atendee--container--info">
+          <img src="https://picsum.photos/92/92" alt="">
+          <div class="atendee--container--info__text">
+            <h5><%= session.user.username %></h5>
+            <p>attending with <%= session.instrument %> </p>
+          </div>
+        </div>
+        <a href="#">Show profile</a>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
