@@ -1,17 +1,21 @@
 class BookingsController < ApplicationController
   def new
-    @instruments = Jam.all
-    @user = current_user
     @booking = Booking.new
   end
 
   def create
-
+    @booking = Bookmark.new(booking_params)
+    @booking.user_id = current_user
+    if @bookmark.save
+      redirect_to jam_path(:jam_id)
+    else
+      render :new
+    end
   end
 
   private
 
   def booking_params
-    params.require(:bookmark).permit(:instrument, :user_id, :jam_id)
+    params.require(:bookmark).permit(:instrument, :jam_id)
   end
 end
