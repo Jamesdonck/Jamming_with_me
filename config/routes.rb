@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/new'
+  get 'users/create'
+  get 'users/edit'
+  get 'users/update'
+  get 'users/destroy'
   devise_for :users
   root to: 'pages#home'
   resources :jams do
