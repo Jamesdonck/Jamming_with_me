@@ -1,48 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .jam--container {
-  margin-top: 40px;
+  background-color: white;
 
-  .jam--title {
-    position: relative;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .back--link {
+    font-weight: bold;
+    font-size: 18px;
 
-    img {
-      width: 45px;
-      border-radius: 50%;
-      border: $white 3px solid;
+    &:hover {
+      text-decoration: none;
     }
   }
 
-  h1 {
-    color: $primary;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-  .btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-radius: 4px;
-  }
-
-  .jam--description {
-    margin-top: 20px;
-    width: 100%;
-    padding: 20px;
-  }
-
-  .user {
+  &--top {
     display: flex;
-    align-items: center;
+    margin: 32px;
+    justify-content: space-between;
+
+    &__info {
+      display: flex;
+    }
+
+    &__info__text {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15px;
+      width: 300px;
+    }
+
+    h5 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
     p {
-      margin-left: 5px;
-      margin-bottom: 0px;
+      margin-bottom: 0;
+      color: #858585;
+      font-weight: lighter;
+      font-size: 14px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #BDBDBD;
+      font-weight: bold;
     }
   }
 }
