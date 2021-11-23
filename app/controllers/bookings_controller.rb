@@ -1,13 +1,18 @@
 class BookingsController < ApplicationController
   def new
+    @jam = Jam.find(params[:jam_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
-    @booking = Bookmark.new(booking_params)
-    @booking.user_id = current_user
-    if @bookmark.save
-      redirect_to jam_path(:jam_id)
+    @jam = Jam.find(params[:jam_id])
+    @booking = Booking.new(booking_params)
+    authorize @booking
+    @booking.user = current_user
+    @booking.jam = @jam
+    if @booking.save
+      redirect_to jam_path(@jam)
     else
       render :new
     end
@@ -16,6 +21,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:bookmark).permit(:instrument, :jam_id)
+    params.require(:booking).permit(:instrument, :jam_id)
   end
 end
