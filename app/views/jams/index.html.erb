@@ -13,7 +13,7 @@
             <p><%= jam.date %></p>
             <div class="d-flex flex-row justify-content-end">
               <%= link_to 'Show details', jam_path(jam) %>
-              <%= link_to 'Attend', root_path %>
+              <%= link_to 'Attend', new_jam_booking_path(jam.id) %>
             </div>
           </div>
         </div>

@@ -3,6 +3,17 @@
   margin: 0;
 }
 
+.spacer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .attend {
+    margin-left: 15px;
+    width: 150px;
+  }
+}
+
 .jam--container {
   background-color: white;
 
