@@ -1,0 +1,28 @@
+.jam-card {
+  display: flex;
+  margin-top: 20px;
+  height: 150px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.150);
+  .jam-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    padding: 10px 15px;
+    overflow: hidden;
+  }
+  h5, p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  h5 {
+    margin-bottom: 15px;
+  }
+  p {
+    margin: 0 0 5px 15px;
+  }
+  a {
+    padding-left: 20px;
+  }
+}
