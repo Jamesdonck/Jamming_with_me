@@ -5,17 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
 puts 'Deleting jams...'
 Jam.destroy_all
 puts 'Deleting users...'
 User.destroy_all
-=======
-Jam.delete_all
-User.delete_all
-
->>>>>>> master
 puts 'Creating users...'
+
 20.times do
   User.create!(
     username: Faker::Internet.username,
@@ -25,6 +20,14 @@ puts 'Creating users...'
     password_confirmation: 'topsecret'
   )
 end
+
+User.create!(
+  username: 'admin',
+  email: 'admin@admin.com',
+  bio: "I am the admin",
+  password: '123123',
+  password_confirmation: '123123'
+)
 
 puts 'Creating jams'
 10.times do
