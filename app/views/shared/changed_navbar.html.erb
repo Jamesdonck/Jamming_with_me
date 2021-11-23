@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+  <div class="navbar" target="navbar">
+  <a class="navbar_logo" href="/">  <img src="https://logopond.com/logos/ae60a0843e2b9b42e5e8b244fcd6d979.png" >  </a>
+    <div class="location">
+      <%= simple_form_for :search, method: :get do |f| %>
+      <%= f.input :city, placeholder: "Where to?", label: false %>
+      <%= f.button :button , {class: 'button_postfix'} do %><i class="fas fa-search"></i><% end %>
+      <% end %>
+    </div>
+      <div class="identification">
+      <h3 class="log_in">Log In</h3>
+      <h3 class= "sign-up">Sign Up →</h3>
+      </div>
+</div>
+
+<% else%>
+<div class="navbar" target="navbar">
+  <a class="navbar_logo" href="/">  <img src="https://logopond.com/logos/ae60a0843e2b9b42e5e8b244fcd6d979.png" >  </a>
+  <p>Where do you want to join a jam session?</p>
+  <a class="navbar_avatar" href="/">  <img src="https://cdn0.iconfinder.com/data/icons/social-media-network-4/48/male_avatar-512.png" >  </a>
+</div>
+<% end %>
