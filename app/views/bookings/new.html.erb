@@ -1,0 +1,6 @@
+<%= simple_form_for [@jam, @booking] do |f| %>
+  <div class="mt-3 ml-2">
+    <%= f.input :instrument, label: 'Instrument', error: 'Instrument can not be blank' %>
+  </div>
+    <%= f.button :submit, class: 'ml-2 btn btn-primary' %>
+<% end %>
