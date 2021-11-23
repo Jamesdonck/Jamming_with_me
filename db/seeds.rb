@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Jam.delete_all
+User.delete_all
 
 puts 'Creating users...'
 20.times do
@@ -20,8 +22,8 @@ end
 puts 'Creating jams'
 10.times do
   Jam.create!(
-    # title: Faker::Hipster.sentence(word_count: 3)
-    # description: Faker::Hipster.sentence
+    title: Faker::Hipster.sentence(word_count: 3),
+    description: Faker::Hipster.sentence,
     user: User.find(User.pluck(:id).sample),
     location: Faker::Address.full_address,
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
