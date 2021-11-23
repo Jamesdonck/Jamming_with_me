@@ -1,21 +1,21 @@
 .navbar {
   justify-content: space-between;
   background: white;
-  height: 60px;
   flex-direction: row;
+  height: 60px;
   img {
-    width: 120px;
-    height: 45px;
+    width: 73px;
+    height: 32px;
     object-fit: cover;
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 
   }
   .search {
     display: flex;
+    margin-bottom: 20px;
   }
-
-
 
   .button_postfix {
     margin-top: -9px;
@@ -32,6 +32,7 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
+  margin-bottom: 50px;
     .log_in {
       background-color: rgb(255, 255, 255);
       width: 100px;
