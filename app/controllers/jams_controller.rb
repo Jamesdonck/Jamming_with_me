@@ -1,11 +1,13 @@
 class JamsController < ApplicationController
   before_action :find_jam, only: %i[show]
+  before_action :authenticate_user!
 
   def index
-    @jams = Jam.all
+    @jams = policy_scope(Jam)
   end
 
   def show
+    authorize @jam
   end
 
   private

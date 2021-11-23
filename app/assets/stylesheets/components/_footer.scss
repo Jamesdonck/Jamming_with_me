@@ -1,0 +1,52 @@
+.footer--container {
+  display: flex;
+  background-color: #252B42;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    padding: 0;
+  }
+
+  h3 {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .form {
+    display: flex;
+  }
+
+  input[type=text], input[type=submit] {
+    height: 30px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  input[type=text] {
+    border: gainsboro solid 1px;
+    padding-left: 10px;
+    width: 200px;
+  }
+
+  input[type=submit] {
+    padding: 5px 10px;
+  }
+
+  /* Style the submit button */
+  input[type=submit] {
+    background-color: $primary;
+    color: white;
+    border: none;
+  }
+
+  input[type=submit]:hover {
+    opacity: 0.8;
+  }
+}
