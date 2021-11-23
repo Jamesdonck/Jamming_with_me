@@ -1,4 +1,7 @@
 <div class="container">
+  <% if policy(Jam).create? %>
+    <%= link_to "New Jam", new_jam_path %>
+  <% end %>
   <div class="row">
     <div class="col-sm-12 col-md-8">
       <% @jams.each do |jam| %>
@@ -9,7 +12,7 @@
             <p><%= jam.location %></p>
             <p><%= jam.date %></p>
             <div class="d-flex flex-row justify-content-end">
-              <%= link_to 'Show details', root_path %>
+              <%= link_to 'Show details', jam_path(jam) %>
               <%= link_to 'Attend', root_path %>
             </div>
           </div>
