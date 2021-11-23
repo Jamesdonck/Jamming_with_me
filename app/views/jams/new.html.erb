@@ -4,7 +4,7 @@
       <%= f.input :title, required: true %>
       <%= f.input :description, required: false %>
       <%= f.input :location, required: true %>
-      <%= f.input :date, required: true %>
+      <%= f.input :date, required: true, as: :datetime %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Create New Jam Session" %>
