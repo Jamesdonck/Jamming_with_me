@@ -21,16 +21,18 @@
   </div>
 
   <h3>Atendees:</h3>
+  <% @jam.bookings.each do |session| %>
   <div class="atendees--container">
     <div class="atendee--container">
       <div class="atendee--container--info">
         <img src="https://picsum.photos/92/92" alt="">
         <div class="atendee--container--info__text">
-          <h5>Hipster_420</h5>
-          <p>attending  with guitar</p>
+          <h5><%= session.user.username %></h5>
+          <p>attending with <%= session.instrument %> </p>
         </div>
       </div>
       <a href="#">Show profile</a>
     </div>
   </div>
+  <% end %>
 </div>
