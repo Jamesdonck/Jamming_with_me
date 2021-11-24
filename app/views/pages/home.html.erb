@@ -5,12 +5,20 @@
     <h2>Meet musicians with the same taste that play the same instruments as you and Jam all day!</h2>
   </div>
 </div>
-<div class="cards">
-  <div class="card">
-  </div>
-  <div class="card">
-  </div>
-  <div class="card">
-  </div>
+<div class="city-list">
+  <%= link_to jams_path do %>
+    <div class="card-city">
+      <h1>Lisboa</h1>
+    </div>
+  <% end %>
+  <%= link_to jams_path do %>
+    <div class="card-city">
+      <h1>Porto</h1>
+    </div>
+  <% end %>
+  <%= link_to jams_path do %>
+    <div class="card-city">
+      <h1>Madrid</h1>
+    </div>
+  <% end %>
 </div>
-<%= link_to "Lisbon", jams_path %>

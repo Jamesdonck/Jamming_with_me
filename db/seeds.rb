@@ -99,12 +99,12 @@ for i in 0..5 do
   )
   image = URI.open(urls[i])
   jam.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
-  rand(1..4).times {
-    Booking.new(
+  rand(1..4).times do
+    Booking.create!(
       user: User.find(User.pluck(:id).sample),
       jam: jam,
       instrument: instruments.sample
     )
-  }
+  end
   jam.save!
 end
