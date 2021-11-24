@@ -3,7 +3,7 @@
     <div class="col-12" >
       <% @jams.each do |jam| %>
         <div class="jam-card">
-          <img src="https://picsum.photos/150">
+          <%= cl_image_tag jam.photo.key, height: 150, width: 150, crop: :fill %>
           <div class="jam-info">
             <h5><%= jam.title %></h2>
             <p><%= jam.location %></p>

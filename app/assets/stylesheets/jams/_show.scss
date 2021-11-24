@@ -17,6 +17,10 @@
 .jam--container {
   background-color: white;
 
+  #map {
+    height: 200px;
+  }
+
   .back--link {
     font-weight: bold;
     font-size: 18px;
@@ -28,7 +32,7 @@
 
   &--top {
     display: flex;
-    margin: 32px;
+    margin: 32px 0 32px 0;
     justify-content: space-between;
 
     &__info {

@@ -1,16 +1,13 @@
 <div class="container">
   <div class='jam--container'>
-    <iframe
-      width="100%"
-      height="300"
-      style="border:0"
-      loading="lazy"
-      allowfullscreen
-      src="https://www.google.com/maps/embed/v1/place?key=<%=ENV['GOOGLEMAPKEY']%>&q=Space+Needle,Seattle+WA">
-    </iframe>
+    <div id="map"
+      style="width: 100%; height: 200px;"
+      data-marker="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
     <div class="jam--container--top">
         <div class="jam--container--top__info">
-          <img src="https://picsum.photos/245/245" alt="">
+          <%= cl_image_tag @jam.photo.key, height: 245, width: 245, crop: :fill %>
           <div class="spacer">
             <div class="jam--container--top__info__text">
               <h5> <%= @jam.title %></h4>
