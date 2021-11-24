@@ -1,4 +1,29 @@
 // Specific CSS for your home-page
-p {
-  margin-bottom: 0;
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 200px 0;
+}
+
+.banner h1 {
+  color: white;
+}
+
+.banner h2 {
+  color: white;
+  opacity: .7;
+  font-size: 20px;
+}
+.banner-image {
+  background-image: image-url('landing_page.png');
+}
+
+
+.cards {
+
+}
+.card {
+  height: 100px;
+  width: 50px;
+  background-color: grey;
 }
