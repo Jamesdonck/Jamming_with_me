@@ -7,7 +7,7 @@
           <div class="jam-info">
             <h5><%= jam.title %></h2>
             <p><%= jam.location %></p>
-            <p><%= jam.date %></p>
+            <p><%= jam.date.strftime("%F at %H:%M")  %></p>
             <div class="d-flex flex-row justify-content-end">
               <%= link_to 'Show details', jam_path(jam) %>
               <%= link_to 'Attend', new_jam_booking_path(jam.id) %>
