@@ -65,7 +65,7 @@ group :test do
 end
 
 group :production do
-  gem 'autoprefixer-rails', '10.2.5'
+  # gem 'autoprefixer-rails', '10.2.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

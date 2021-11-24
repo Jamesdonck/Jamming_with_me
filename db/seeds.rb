@@ -1,3 +1,5 @@
+require 'open-uri'
+
 puts 'Deleting bookings...'
 Booking.destroy_all
 
@@ -74,7 +76,7 @@ for i in 0..6 do
     location: locations[i],
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
-  image = URI.open(urls[i])
-  jam.photo.attach(image)
+  # image = URI.open(urls[i])
+  # jam.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
   jam.save!
 end
