@@ -1,4 +1,4 @@
-<div class="big_container">
+<div class="big_container container">
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://www.jams-hotel.com/wp-content/uploads/2019/06/jams_logo_black_rgb.png" %>
@@ -19,6 +19,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "New Jam", "#", type:"button", class:"nav-link btn-primary" %>
+          </li>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
