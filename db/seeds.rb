@@ -28,7 +28,7 @@ for i in 0..5 do
     password_confirmation: 'topsecret'
   )
   image = URI.open(profiles[i])
-  user.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
+  user.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
   user.save!
 end
 
@@ -89,6 +89,6 @@ for i in 0..5 do
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
   image = URI.open(urls[i])
-  jam.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
+  jam.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
   jam.save!
 end
