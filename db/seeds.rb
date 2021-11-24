@@ -15,7 +15,8 @@ profiles = [
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756891/itsthnmkfbwjjxudf19m.jpg",
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756427/rgg4n987j2jzutaig7uh.jpg",
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756561/ihdkxpsu3byl59y4quca.jpg",
-  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765211/aqwxwo6gqsrd5xn6gubh.jpg"
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765211/aqwxwo6gqsrd5xn6gubh.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg"
 ]
 
 puts 'Creating users...'
@@ -28,7 +29,7 @@ for i in 0..5 do
     password_confirmation: 'topsecret'
   )
   image = URI.open(profiles[i])
-  user.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
+  user.photo.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
   user.save!
 end
 
