@@ -21,7 +21,7 @@
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "New Jam", "#", type:"button", class:"nav-link btn-primary" %>
+              <%= link_to "New Jam", new_jam_path, type:"button", class:"nav-link btn-primary" %>
             </li>
             <li class="nav-item active">
               <%= link_to "Home", "#", class: "nav-link" %>
