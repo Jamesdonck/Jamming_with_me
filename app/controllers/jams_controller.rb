@@ -17,6 +17,13 @@ class JamsController < ApplicationController
 
   def show
     authorize @jam
+    @marker =
+      {
+        lat: @jam.latitude,
+        lng: @jam.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { jam: @jam }),
+        image_url: helpers.asset_url('marker.png')
+      }
   end
 
   def new

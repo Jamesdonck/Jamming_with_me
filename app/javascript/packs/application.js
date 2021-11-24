@@ -26,9 +26,11 @@ import "bootstrap";
 
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxShow } from "../plugins/init_mapbox_show";
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initMapboxShow();
   initAutocomplete();
 });
