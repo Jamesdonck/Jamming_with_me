@@ -1,14 +1,46 @@
-.navbar-lewagon {
+
+
+.big_container {
+
+  .navbar {
   justify-content: space-between;
   background: white;
-}
+  height: 60px;
+  }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-lewagon .navbar-collapse {
+    flex-grow: 0;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .navbar-lewagon .navbar-brand img {
+    margin-top: 0px;
+    width: 74px;
+    height: 44px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search {
+      display: flex;
+      margin-bottom: -30px;
+      margin-right: 300px;
+      width: 600px;
+    }
+
+  .button_postfix {
+    margin-bottom: -30px;
+    font-size: large;
+    color: white;
+    background-color: rgb(35, 166, 240);
+    margin-top: 0px;
+    margin-bottom: 35px;
+    height: 38px;
+    }
+
+  .navbar-collapse{
+    margin-top: 0px;
+  }
 }
 
 .dropdown-toggle::after {
