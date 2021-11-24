@@ -1,4 +1,51 @@
 // Specific CSS for your home-page
-p {
-  margin-bottom: 0;
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 200px 0;
+  height: 400px;
+}
+
+.banner h1 {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.322);
+}
+
+.banner h2 {
+  color: white;
+  opacity: .7;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.322);
+}
+.banner-image {
+  background-image: image-url('landing_page.png');
+}
+
+.city-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin-top: 20px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.card-city {
+  background-image: url('https://i0.wp.com/www.eurodicas.com.br/wp-content/uploads/2020/06/morar-em-lisboa.jpg?w=750&ssl=1');
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.40);
+}
+.card {
+  height: 100px;
+  width: 50px;
+  background-color: grey;
 }
