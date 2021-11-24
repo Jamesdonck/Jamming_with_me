@@ -16,8 +16,11 @@ height: 60px;
       background-color: #2095d8;
     }
   }
-
+  .location {
+    margin-left: 30px;
+  }
 }
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -35,8 +38,9 @@ height: 60px;
 .search {
     display: flex;
     margin-bottom: -30px;
-    margin-right: 300px;
-    width: 600px;
+    // flex-grow: 1;
+    // margin-right: 300px;
+    // width: 600px;
   }
 
 .button_postfix {
@@ -51,4 +55,9 @@ height: 60px;
 
 .navbar-collapse{
   margin-top: 0px;
+}
+
+#navbarSupportedContent {
+  justify-content: flex-end;
+  flex-grow: 1;
 }

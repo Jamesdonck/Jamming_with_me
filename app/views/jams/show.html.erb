@@ -25,7 +25,7 @@
       <% @jam.bookings.each do |session| %>
         <div class="atendee--container">
           <div class="atendee--container--info">
-            <img src="https://picsum.photos/92/92" alt="">
+            <%= cl_image_tag session.user.avatar.key, height: 92, width: 92, crop: :fill %>
             <div class="atendee--container--info__text">
               <h5><%= session.user.username %></h5>
               <p>attending with <span><%= session.instrument %></span></p>
