@@ -14,7 +14,7 @@
           <div class="spacer">
             <div class="jam--container--top__info__text">
               <h5> <%= @jam.title %></h4>
-              <p class='date'> <%= @jam.date %></p>
+              <p class='date'> <%= @jam.date.strftime("%F at %H:%M") %></p>
               <p> <%= @jam.description %></p>
             </div>
             <%= link_to 'Attend Jam', new_jam_booking_path(@jam.id), class:'btn btn-primary attend' %>
@@ -24,19 +24,19 @@
     </div>
 
     <h3>Atendees:</h3>
-    <% @jam.bookings.each do |session| %>
     <div class="atendees--container">
-      <div class="atendee--container">
-        <div class="atendee--container--info">
-          <img src="https://picsum.photos/92/92" alt="">
-          <div class="atendee--container--info__text">
-            <h5><%= session.user.username %></h5>
-            <p>attending with <%= session.instrument %> </p>
+      <% @jam.bookings.each do |session| %>
+        <div class="atendee--container">
+          <div class="atendee--container--info">
+            <img src="https://picsum.photos/92/92" alt="">
+            <div class="atendee--container--info__text">
+              <h5><%= session.user.username %></h5>
+              <p>attending with <span><%= session.instrument %></span></p>
+            </div>
           </div>
+          <a href="#">Show profile</a>
         </div>
-        <a href="#">Show profile</a>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
