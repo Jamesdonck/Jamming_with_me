@@ -33,7 +33,7 @@ class JamsController < ApplicationController
   private
 
   def jam_params
-    params.require(:jam).permit(:latitude, :longitude, :location, :title, :description, :date)
+    params.require(:jam).permit(:location, :title, :description, :date)
   end
 
   def find_jam
