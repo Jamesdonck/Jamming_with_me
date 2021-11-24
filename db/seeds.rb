@@ -32,21 +32,6 @@ for i in 0..5 do
   user.save!
 end
 
-for i in 0..5 do
-  jam = Jam.new(
-    title: titles[i],
-    description: Faker::Hipster.sentence,
-    user: User.find(User.pluck(:id).sample),
-    location: locations[i],
-    date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
-  )
-  image = URI.open(urls[i])
-  jam.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
-  jam.save!
-
-
-
-
 User.create!(
   username: 'admin',
   email: 'admin@admin.com',
