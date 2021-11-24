@@ -39,13 +39,31 @@ User.create!(
   password_confirmation: '123456'
 )
 
+locations = [
+  'Rua Conde Redondo, Lisboa',
+  'Av. da Liberdade, Lisboa',
+  'Jardim do Arco do Cego, Lisboa',
+  'Parque Eduardo VII, Lisboa',
+  'Saldanha, Lisboa',
+  'Entrecampos, Lisboa'
+]
+
+titles = [
+  'Jammin with da bois',
+  'Guitar + Drums delightful duo looking for extras',
+  'Jammin in the park',
+  'Free spirit trying to connect through music',
+  'In need of a xylophone player',
+  'Putting the JAM in jam sessions '
+]
+
 puts 'Creating jams'
-10.times do
+for i in 0..6 do
   Jam.create!(
-    title: Faker::Hipster.sentence(word_count: 3),
+    title: titles[i],
     description: Faker::Hipster.sentence,
     user: User.find(User.pluck(:id).sample),
-    location: Faker::Address.full_address,
+    location: locations[i],
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
 end

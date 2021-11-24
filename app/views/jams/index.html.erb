@@ -1,9 +1,6 @@
-<div class="container c-index">
-  <% if policy(Jam).create? %>
-    <%= link_to "New Jam", new_jam_path %>
-  <% end %>
+<div class="container-fullscreen">
   <div class="row">
-    <div class="col-sm-12 col-md-8">
+    <div class="col-12" >
       <% @jams.each do |jam| %>
         <div class="jam-card">
           <img src="https://picsum.photos/150">
@@ -19,10 +16,11 @@
         </div>
       <% end %>
     </div>
-    <div class="col-4 map-index">
-      <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
-        src="https://www.google.com/maps/embed/v1/place?key=<%=ENV['GOOGLEMAPKEY']%>&q=Space+Needle,Seattle+WA">
-      </iframe>
-    </div>
+  </div>
+  <div class="map-index">
+    <div id="map"
+      style="width: 100%; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
