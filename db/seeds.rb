@@ -9,6 +9,15 @@ Jam.destroy_all
 puts 'Deleting users...'
 User.destroy_all
 
+profiles = {
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637757070/tmfpsn2ketgf08n4eiuz.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756891/itsthnmkfbwjjxudf19m.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756427/rgg4n987j2jzutaig7uh.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756561/ihdkxpsu3byl59y4quca.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765211/aqwxwo6gqsrd5xn6gubh.jpg"
+}
+
 puts 'Creating users...'
 20.times do
   User.create!(
@@ -68,7 +77,7 @@ urls = [
 ]
 
 puts 'Creating jams'
-for i in 0..6 do
+for i in 0..5 do
   jam = Jam.new(
     title: titles[i],
     description: Faker::Hipster.sentence,
@@ -76,7 +85,7 @@ for i in 0..6 do
     location: locations[i],
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
-  # image = URI.open(urls[i])
-  # jam.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
+  image = URI.open(urls[i])
+  jam.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
   jam.save!
 end
