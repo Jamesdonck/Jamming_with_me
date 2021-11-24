@@ -12,7 +12,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -22,7 +21,6 @@ ActiveStorage.start()
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // External imports
-import "bootstrap";
 
 // Internal imports
 import { initMapbox } from '../plugins/init_mapbox';
