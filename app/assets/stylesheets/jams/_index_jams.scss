@@ -1,41 +1,75 @@
 .container-fullscreen {
   display: flex;
   justify-content: space-between;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary;
+  }
 }
+
 
 .jam-card {
   display: flex;
+  position: relative;
+  background-color: white;
   margin-top: 20px;
   margin-left: 20px;
   height: 150px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.150);
-  transition: transform 0.15s ease-in-out;
-  .jam-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-right: 1px $primary solid;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  color: black;
+
+  &::after {
+    content: "▷";
     flex-grow: 1;
-    padding: 10px 15px;
-    overflow: hidden;
+    align-self: center;
+    text-align: end;
+    margin-right: 0px;
+    opacity: 0;
   }
-  h5, p {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  h5 {
-    margin-bottom: 15px;
-  }
-  p {
-    margin: 0 0 5px 15px;
-  }
-  a {
-    padding-left: 20px;
-  }
+
   &:hover {
-     transform: scale(1.03);
-     cursor: default;
+    border-right: 40px $primary solid;
+  }
+
+  &:hover::after {
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    color: white;
+    right: -30px;
+    opacity: 1;
    }
+
+  .jam-info {
+    width: 60%;
+    padding: 20px;
+  }
+
+  h5 {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+  p {
+    margin-bottom: 0;
+    color: $gray;
+    font-weight: lighter;
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 12px;
+    color: #BDBDBD;
+    font-weight: bold;
+  }
 }
 
 .map-index {
