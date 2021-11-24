@@ -31,7 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'bootstrap', '~> 4.6.1'
+
+gem 'geocoder'
 gem 'faker'
 gem 'cloudinary', '~> 1.16.0'
 
@@ -64,7 +65,7 @@ group :test do
 end
 
 group :production do
-  gem 'autoprefixer-rails', '10.2.5'
+  # gem 'autoprefixer-rails', '10.2.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

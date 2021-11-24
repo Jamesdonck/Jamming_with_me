@@ -1,18 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 puts 'Deleting bookings...'
 Booking.destroy_all
+
 puts 'Deleting jams...'
 Jam.destroy_all
+
 puts 'Deleting users...'
 User.destroy_all
-puts 'Creating users...'
 
+puts 'Creating users...'
 20.times do
   User.create!(
     username: Faker::Internet.username,
@@ -39,38 +36,47 @@ User.create!(
   password_confirmation: '123456'
 )
 
-puts 'Creating jams'
-images = []
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637757070/tmfpsn2ketgf08n4eiuz.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637756427/rgg4n987j2jzutaig7uh.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637755359/fpcz4pmak4hhsktftt9b.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637755944/jwju5uiu1vybq9ffif8e.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637755027/etdlndd2rccifx1pkbkz.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637754868/d4nirgzzpzcjgpdlcrkg.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637754798/gtuir2cw2leisweuzaus.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637754571/w0fbmdqboeheahmif62l.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637756561/ihdkxpsu3byl59y4quca.jpg"))
-images.push(URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637756839/evy5t5zamg1eegofyxrx.jpg"))
+locations = [
+  'Rua Conde Redondo, Lisboa',
+  'Av. da Liberdade, Lisboa',
+  'Jardim do Arco do Cego, Lisboa',
+  'Parque Eduardo VII, Lisboa',
+  'Saldanha, Lisboa',
+  'Entrecampos, Lisboa'
+]
 
-10.times do
-  Jam.create!(
-    title: Faker::Hipster.sentence(word_count: 3),
+titles = [
+  'Jammin with da bois',
+  'Guitar + Drums delightful duo looking for extras',
+  'Jammin in the park',
+  'Free spirit trying to connect through music',
+  'In need of a xylophone player',
+  'Putting the JAM in jam sessions '
+]
+
+urls = [
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637757070/tmfpsn2ketgf08n4eiuz.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756427/rgg4n987j2jzutaig7uh.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637755359/fpcz4pmak4hhsktftt9b.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637755944/jwju5uiu1vybq9ffif8e.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637755027/etdlndd2rccifx1pkbkz.jpg",
+  #"https://res.cloudinary.com/drfv43ng3/image/upload/v1637754868/d4nirgzzpzcjgpdlcrkg.jpg",
+  #"https://res.cloudinary.com/drfv43ng3/image/upload/v1637754798/gtuir2cw2leisweuzaus.jpg",
+  #"https://res.cloudinary.com/drfv43ng3/image/upload/v1637754571/w0fbmdqboeheahmif62l.jpg",
+  #"https://res.cloudinary.com/drfv43ng3/image/upload/v1637756561/ihdkxpsu3byl59y4quca.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756839/evy5t5zamg1eegofyxrx.jpg"
+]
+
+puts 'Creating jams'
+for i in 0..6 do
+  jam = Jam.new(
+    title: titles[i],
     description: Faker::Hipster.sentence,
     user: User.find(User.pluck(:id).sample),
-    location: Faker::Address.full_address,
+    location: locations[i],
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
+  # image = URI.open(urls[i])
+  # jam.photo.attach(io: file, filename: "#{i}.jpg", content_type: 'image/jpg')
+  jam.save!
 end
-
-Jam.all.foreach do |jam|
-  jam.photo.attach(images.pop)
-end
-
-jam1 = Jam.create(
-    title: Faker::Hipster.sentence(word_count: 3),
-    description: Faker::Hipster.sentence,
-    user: User.find(User.pluck(:id).sample),
-    location: Faker::Address.full_address,
-    date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now))
-image1 = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637757070/tmfpsn2ketgf08n4eiuz.jpg")
-jam1.photo.attach(image1)

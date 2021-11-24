@@ -1,8 +1,15 @@
+.container-fullscreen {
+  display: flex;
+  justify-content: space-between;
+}
+
 .jam-card {
   display: flex;
   margin-top: 20px;
+  margin-left: 20px;
   height: 150px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.150);
+  transition: transform 0.15s ease-in-out;
   .jam-info {
     display: flex;
     flex-direction: column;
@@ -24,5 +31,19 @@
   }
   a {
     padding-left: 20px;
+  }
+  &:hover {
+     transform: scale(1.03);
+     cursor: default;
+   }
+}
+
+.map-index {
+  padding: 0;
+  margin-left: 20px;
+  width: 100%;
+  #map {
+    position: sticky;
+    top: 0;
   }
 }
