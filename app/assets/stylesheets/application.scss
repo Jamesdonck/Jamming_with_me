@@ -10,9 +10,11 @@
 
 // Your CSS partials
 @import "components/index";
+@import 'components/navbar';
 @import 'components/footer';
 @import "pages/index";
 @import "jams/index";
 @import 'jams/show';
+@import 'jams/new';
 
 // @import 'components/changed_navbar';

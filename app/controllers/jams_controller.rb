@@ -16,7 +16,14 @@ class JamsController < ApplicationController
   end
 
   def create
-    redirect_to jams_path
+    @jam = Jam.new(jam_params)
+    authorize @jam
+    @jam.user = current_user
+    if @jam.save
+      redirect_to jam_path(@jam)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -24,6 +31,10 @@ class JamsController < ApplicationController
   end
 
   private
+
+  def jam_params
+    params.require(:jam).permit(:location, :title, :description, :date)
+  end
 
   def find_jam
     @jam = Jam.find(params[:id])
