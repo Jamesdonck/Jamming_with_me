@@ -1,13 +1,14 @@
-<div class="container">
-  <%= simple_form_for :jam do |f| %>
+<div class="form--card mx-auto">
+  <%= simple_form_for @jam do |f| %>
     <div class="form-inputs">
       <%= f.input :title, required: true %>
       <%= f.input :description, required: false %>
-      <%= f.input :location, required: true %>
-      <%= f.input :date, required: true, as: :datetime %>
+      <%= f.input :location, required: true, id: 'jam_location' %>
+      <%= f.input :date, as: :datetime, html5: true, required: true %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Create New Jam Session" %>
+      <%= f.button :submit, "Create Jam", class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', root_path, class: 'btn btn-outline-primary' %>
     </div>
   <% end %>
 </div>
