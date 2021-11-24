@@ -15,7 +15,8 @@ profiles = [
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756891/itsthnmkfbwjjxudf19m.jpg",
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756427/rgg4n987j2jzutaig7uh.jpg",
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756561/ihdkxpsu3byl59y4quca.jpg",
-  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765211/aqwxwo6gqsrd5xn6gubh.jpg"
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765211/aqwxwo6gqsrd5xn6gubh.jpg",
+  "https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg"
 ]
 
 puts 'Creating users...'
@@ -28,25 +29,31 @@ for i in 0..5 do
     password_confirmation: 'topsecret'
   )
   image = URI.open(profiles[i])
-  user.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
+  user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
   user.save!
 end
 
-User.create!(
+user = User.new(
   username: 'admin',
   email: 'admin@admin.com',
   bio: "I am the admin",
   password: '123123',
   password_confirmation: '123123'
 )
+image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg")
+user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
+user.save!
 
-User.create!(
+user = User.create!(
   username: 'Jovis',
   email: 'Jovis@admin.com',
   bio: "I am Jovis",
   password: '123456',
   password_confirmation: '123456'
 )
+image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg")
+user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
+user.save!
 
 locations = [
   'Rua Conde Redondo, Lisboa',
@@ -79,6 +86,8 @@ urls = [
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756839/evy5t5zamg1eegofyxrx.jpg"
 ]
 
+instruments = %w[drums bass guitar piano banjo triangle trumpet tambourine violin harp]
+
 puts 'Creating jams'
 for i in 0..5 do
   jam = Jam.new(
@@ -90,5 +99,12 @@ for i in 0..5 do
   )
   image = URI.open(urls[i])
   jam.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
+  rand(1..4).times {
+    Booking.new(
+      user: User.find(User.pluck(:id).sample),
+      jam: jam,
+      instrument: instruments.sample
+    )
+  }
   jam.save!
 end
