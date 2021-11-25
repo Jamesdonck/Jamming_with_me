@@ -1,4 +1,5 @@
 .navbar {
+  z-index: 1;
   flex-wrap: nowrap;
   .new_jam_btn {
   border-radius: 20px;
@@ -47,9 +48,4 @@
       margin-right: 30vh;
       margin-left: 0px;
     }
-}
-
-#city-name {
-  color: rgba(0, 0, 0, 0.100);
-  font-weight: bolder;
 }

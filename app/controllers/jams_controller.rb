@@ -6,28 +6,20 @@ class JamsController < ApplicationController
   before_action :find_jam, only: :show
 
   def index
-    @jams = policy_scope(Jam)
-    # @jams = Jam.geocoded
-    @markers = @jams.geocoded.map do |jam|
-      {
-        lat: jam.latitude,
-        lng: jam.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { jam: jam }),
-        image_url: helpers.asset_url('marker.svg')
-      }
-    end
+    redirect_to root_path if params[:search].nil?
+    @city = params[:search][:city]
+    @center_coordinates = Geocoder.search(@city).first.coordinates
+    @jams = Jam.near(@center_coordinates, 50)
+    @jams = policy_scope(@jams)
+    @markers = @jams.geocoded.map { |jam| create_marker(jam) }
   end
 
   def show
     authorize @jam
     @instruments = instruments_list
     @booking = Booking.new
-    @markers = [{
-      lat: @jam.latitude,
-      lng: @jam.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { jam: @jam }),
-      image_url: helpers.asset_url('marker.svg')
-    }]
+    @markers = [create_marker(@jam)]
+    @center_coordinates = [@jam.latitude, @jam.longitude]
   end
 
   def new
@@ -76,5 +68,14 @@ class JamsController < ApplicationController
     instruments_serial = URI.open(url).read
     results = JSON.parse(instruments_serial)
     results["instruments"]
+  end
+
+  def create_marker(jam)
+    {
+      lat: jam.latitude,
+      lng: jam.longitude,
+      image_url: helpers.asset_url('marker.svg'),
+      id: jam.id
+    }
   end
 end
