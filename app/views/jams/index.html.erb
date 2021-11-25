@@ -4,7 +4,7 @@
       <% @jams.each do |jam| %>
         <%= link_to jam_path(jam) do%>
           <div class="jam-card">
-            <%= cl_image_tag jam.photo.key, height: 150, width: 150, crop: :fill %>
+            <%= render "index_jam_photo", jam: jam %>
             <div class="jam-info">
               <h5><%= jam.title %></h2>
               <p class='date'><%= jam.date.strftime("%F at %H:%M")  %></p>
