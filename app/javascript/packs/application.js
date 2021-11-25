@@ -19,7 +19,7 @@ ActiveStorage.start()
 
 // Import CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
-
+import 'bootstrap'
 // External imports
 
 // Internal imports

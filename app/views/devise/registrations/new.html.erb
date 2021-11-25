@@ -35,8 +35,12 @@
                   required: true,
                   class:"form-control",
                   # placeholder:"Please insert eamil",
-                  autofocus: true,
                   input_html: { autocomplete: "email" }%>
+      </div>
+     <div class="form-inputs form-group">
+      <%= f.input :avatar as: :file,
+                  required: true,
+                  class:"form-control"%>
       </div>
 
     <div class="form-actions">
