@@ -3,6 +3,7 @@ justify-content: space-between;
 align-items: center;
 background: white;
 height: 60px;
+display: flex;
 box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
   .new_jam_btn {
@@ -18,14 +19,14 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     }
   }
   .location {
-    margin-left: 30px;
+    margin-left: 0vh;
   }
+
 }
 
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
 
 .navbar-lewagon .navbar-brand img {
   margin-top: 0px;
@@ -65,4 +66,13 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
 .navbar-nav p {
   margin-bottom: 0 !important;
+}
+
+img{
+  margin-left: 20vh;
+}
+
+.avatar {
+  margin-right: 30vh;
+  margin-left: 0px;
 }
