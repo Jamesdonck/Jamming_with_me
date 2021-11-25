@@ -3,7 +3,7 @@ class CreateBookings < ActiveRecord::Migration[6.1]
     create_table :bookings do |t|
       t.references :user, null: false, foreign_key: true
       t.references :jam, null: false, foreign_key: true
-      t.string :instrument, :string, array: true, default:[]
+      t.string :instrument, :string
 
       t.timestamps
     end
