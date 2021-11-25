@@ -6,4 +6,4 @@ local:
   root: <%= Rails.root.join("storage") %>
 cloudinary:
   service: Cloudinary
-  folder: <%= Rails.env %>
+  folder: jams

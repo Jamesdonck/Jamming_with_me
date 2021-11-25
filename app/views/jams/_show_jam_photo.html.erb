@@ -1,0 +1,5 @@
+<% if jam.photo.attached?%>
+	<%= cl_image_tag jam.photo.key, height: 245, width: 245, crop: :fill %>
+  <% else %>
+  <%= cl_image_tag "lke5m9c4f9cicunxvcuh", height: 245, width: 245, crop: :fill %>
+<% end %>
