@@ -1,11 +1,5 @@
 .navbar {
-justify-content: space-between;
-align-items: center;
-background: white;
-height: 60px;
-display: flex;
-box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-
+  flex-wrap: nowrap;
   .new_jam_btn {
   border-radius: 20px;
   background-color: $primary;
@@ -18,18 +12,13 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
       background-color: #2095d8;
     }
   }
-
   .location {
     margin-left: 0vh;
   }
-
-
-
   .search {
       display: flex;
       margin-bottom: -30px;
     }
-
   .button_postfix {
     margin-bottom: -30px;
     font-size: large;
@@ -39,37 +28,25 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     margin-bottom: 35px;
     height: 38px;
     }
-
   .navbar-collapse{
     margin-top: 0px;
   }
-
   #navbarSupportedContent {
     justify-content: flex-end;
     flex-grow: 1;
   }
-
   .navbar-nav p {
     margin-bottom: 0 !important;
   }
-
   img{
-      margin-left: 20vh;
+      margin: 0 0.5rem;
+      width: 74px;
+      height: auto;
     }
-
   .avatar {
       margin-right: 30vh;
       margin-left: 0px;
     }
-}
-
-.navbar-lewagon .navbar-brand img {
-  margin-top: 0px;
-  width: 74px;
-  height: 44px;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
 }
 
 #city-name {

@@ -1,26 +1,44 @@
 // Specific CSS for your home-page
-.banner {
+.banner-home {
+  background-image: image-url("landing_page.png");
   background-size: cover;
   background-position: center;
-  padding: 200px 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: column;
   height: 50vh;
+  margin: 0 auto;
+  padding: 0 30px 10px 30px;
+  h1, h2 {
+    color: rgba(255, 255, 255, 0.800);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.322);
+  }
+  h1 {
+    width: clamp(25rem, 100%, 40rem);
+    font-size: clamp(3rem, 7vw, 3.5rem);
+    font-weight: bold;
+  }
+  h2 {
+    width: clamp(22rem, 100%, 45rem);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    margin-bottom: 1rem;
+  }
 }
 
-.banner h1 {
-  color: white;
-  font-size: 4rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.322);
-}
-
-.banner h2 {
-  color: white;
-  opacity: 0.7;
-  font-size: 2rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.322);
-}
-.banner-image {
-  background-image: image-url("landing_page.png");
+.location-home {
+  form {
+    display: flex;
+    ::placeholder {
+      color: rgba(0, 0, 0, 0.800);
+    }
+  }
+  .form-control {
+  width: clamp(18rem, 40vw, 40rem);
+  background-color: rgba(255, 255, 255, 0.200) ;
+    &:hover, &:focus {
+      background-color: rgba(255, 255, 255, 0.600)
+    }
+  }
 }
 
 .city-list {

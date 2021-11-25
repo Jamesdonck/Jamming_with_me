@@ -1,8 +1,12 @@
 
-<div class="banner banner-image">
-  <div class="container" >
-    <h1>Come and Jam with us!</h1>
-    <h2>Meet musicians with the same taste that play the same instruments as you and Jam all day!</h2>
+<div class="banner-home">
+  <h1>Come and Jam with us!</h1>
+  <h2>Meet musicians with the same taste as you and just jam</h2>
+  <div class="location-home">
+    <%= simple_form_for :search, method: :get, class: 'form-inline' do |f| %>
+      <%= f.input :location, id: 'jam_location', placeholder: "Where do you want to jam?", label: false %>
+      <%= f.button :button, 'Go!', {class: 'btn btn-outline-success mb-3 ml-2'} %>
+    <% end %>
   </div>
 </div>
 <div class="city-list">

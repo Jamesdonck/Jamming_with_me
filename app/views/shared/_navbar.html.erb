@@ -9,14 +9,13 @@
    </div>
 
 
-  <div class="location">
-        <%= simple_form_for :search, method: :get do |f| %>
-        <%= f.input :city, placeholder: "Where to Jam?", label: false %>
-        <%= f.button :button , {class: 'button_postfix'} do %><i class="fas fa-search"></i><% end %>
-        <% end %>
-  </div>
-
   <% unless current_page?(root_path) %>
+    <div class="location">
+          <%= simple_form_for :search, method: :get do |f| %>
+          <%= f.input :city, placeholder: "Where to Jam?", label: false %>
+          <%= f.button :button , {class: 'button_postfix'} do %><i class="fas fa-search"></i><% end %>
+          <% end %>
+    </div>
     <% coordinates = Geocoder.search('lisbon').first.coordinates %>
     <div id="city-name" data-lat="<%= coordinates[0] %>" data-lng="<%= coordinates[1] %>">
         <h1><%= "LISBON" %></h1>
