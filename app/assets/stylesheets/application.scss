@@ -18,3 +18,8 @@
 @import 'jams/new';
 
 // @import 'components/changed_navbar';
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
