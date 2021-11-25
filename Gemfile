@@ -36,7 +36,7 @@ gem 'bootstrap', '~> 4.6.1'
 gem 'geocoder'
 gem 'faker'
 gem 'cloudinary', '~> 1.16.0'
-# gem 'open-uri'
+gem 'open-uri'
 
 group :development, :test do
   gem 'pry-byebug'

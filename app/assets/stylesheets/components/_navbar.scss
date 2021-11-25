@@ -1,6 +1,13 @@
 .navbar {
-  z-index: 1;
-  flex-wrap: nowrap;
+justify-content: space-between;
+align-items: center;
+padding: 0 15%;
+background: white;
+height: 60px;
+display: flex;
+box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+//z-index: 1;
+//flex-wrap: nowrap;
   .new_jam_btn {
   border-radius: 20px;
   background-color: $primary;
@@ -8,7 +15,6 @@
   padding-right: 15px !important;
   padding-left: 15px !important;
   margin-right: 20px;
-
     &:hover {
       background-color: #2095d8;
     }
@@ -39,13 +45,11 @@
   .navbar-nav p {
     margin-bottom: 0 !important;
   }
-  img{
-      margin: 0 0.5rem;
-      width: 74px;
-      height: auto;
-    }
-  .avatar {
-      margin-right: 30vh;
-      margin-left: 0px;
-    }
+  .dropdown-menu {
+    right: 0;
+    top: 50px;
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
 }
