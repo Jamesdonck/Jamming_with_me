@@ -6,6 +6,7 @@
   }
   display: flex;
   margin: 50px;
+  justify-content: center;
 
   .profile--container {
     display: flex;
@@ -77,8 +78,14 @@
 
   .jams--attending {
     padding-left: 20px;
+    width: 40%;
+
+    a {
+      text-decoration: none;
+    }
 
     &__booking {
+      position: relative;
       background-color: white;
       box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
         rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -88,9 +95,38 @@
       align-items: flex-start;
       justify-content: flex-start;
       margin-bottom: 20px;
-      width: 70%;
+      border-right: 1px $primary solid;
+      transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      cursor: pointer;
 
-      &__info__title{
+      &::after {
+        position: absolute;
+        right: 0;
+        content: "▷";
+        flex-grow: 1;
+        align-self: center;
+        text-align: end;
+        margin-right: 0px;
+        opacity: 0;
+      }
+
+      &:hover {
+        border-right: 40px $primary solid;
+      }
+
+      &:hover::after {
+        position: absolute;
+        transition: all 0.2s all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        color: white;
+        right: -30px;
+        opacity: 1;
+      }
+
+      &__info {
+        margin-right: 25px;
+      }
+
+      &__info__title {
         display: flex;
         align-items: center;
       }
@@ -101,6 +137,7 @@
       }
 
       h5 {
+        color: rgb(36, 36, 36);
         font-weight: bold;
         margin-right: 10px;
       }
@@ -124,7 +161,7 @@
         font-weight: lighter;
         color: #5e5e5e;
 
-        span{
+        span {
           color: $primary;
         }
       }

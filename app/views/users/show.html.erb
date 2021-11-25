@@ -21,16 +21,22 @@
   </div>
   <div class="jams--attending">
   <% Booking.where(user_id: @user).each do |booking|%>
-    <div class="jams--attending__booking">
-    <%= cl_image_tag booking.jam.photo.key, height: 80, width: 80, crop: :fill %>
-      <div class="jams--attending__booking__info">
-        <div class="jams--attending__booking__info__title">
-          <h5> <%= booking.jam.title %></h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+    <%= link_to jam_path(booking.jam) do %>
+      <div class="jams--attending__booking">
+      <%= cl_image_tag booking.jam.photo.key, height: 80, width: 80, crop: :fill %>
+        <div class="jams--attending__booking__info">
+          <div class="jams--attending__booking__info__title">
+            <% if (booking.jam.title.length > 25) %>
+              <h5> <%= booking.jam.title[0,25] %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+            <% else %>
+              <h5> <%= booking.jam.title %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+            <% end %>
+          </div>
+          <p class='jams--attending__booking__info__description'> <%= booking.jam.description %></p>
+          <p class='jams--attending__booking__user__instrument'><span><%= @user.username.capitalize %></span> is attending with <%= booking.instrument %></p>
         </div>
-        <p class='jams--attending__booking__info__description'> <%= booking.jam.description %></p>
-        <p class='jams--attending__booking__user__instrument'><span><%= @user.username.capitalize %></span> is attending with <%= booking.instrument %></p>
       </div>
-    </div>
+    <% end %>
   <% end %>
   </div>
 </div>
