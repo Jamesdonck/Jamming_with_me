@@ -1,5 +1,4 @@
 .footer--container {
-  position: absolute;
   bottom: 0;
   display: flex;
   background-color: #131b20;
@@ -7,6 +6,8 @@
   height: 55px;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
 
   .container {
     display: flex;

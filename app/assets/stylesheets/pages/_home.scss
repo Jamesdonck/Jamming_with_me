@@ -28,6 +28,7 @@
   grid-template-columns: repeat(3, 34vw);
   position: relative;
   overflow: hidden;
+  margin-left: -10px;
 
   a {
     text-decoration: none;
@@ -104,11 +105,15 @@
   color: rgba(255, 255, 255, 0);
   padding-bottom: 0px;
   z-index: 0;
+  margin: 40px;
   transition: z-index 0.2s, all 0.4s cubic-bezier(0.3, 0.59, 0.25, 1);
+  margin-bottom: 10px;
+  box-shadow:  0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
 
   h1 {
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 230px;
+    font-size: 180px;
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 0.75;
