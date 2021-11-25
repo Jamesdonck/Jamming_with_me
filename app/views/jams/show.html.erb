@@ -32,7 +32,7 @@
               <p>attending with <span><%= session.instrument %></span></p>
             </div>
           </div>
-          <a href="#">Show profile</a>
+          <%= link_to 'Show profile', user_path(session.user.id) %>
         </div>
       <% end %>
     </div>
