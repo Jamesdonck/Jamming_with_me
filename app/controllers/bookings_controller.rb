@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user = current_user
     @booking.jam = @jam
-    raise
     if @booking.save
       redirect_to jam_path(@jam)
     else
