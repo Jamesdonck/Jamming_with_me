@@ -1,21 +1,43 @@
-<div class="container">
-  <div class="profile">
-    <div class="profile-header">
-      <img src="https://picsum.photos/150">
-      <h2><%= @user.username %></h2>
-      <div>
-        <i class="far fa-edit"></i>
-        <i class="far fa-trash-alt"></i>
-      </div>
+<div class="user--show--container">
+  <div class="profile--container">
+    <%= cl_image_tag @user.avatar.key, height: 245, width: 245, crop: :fill %>
+    <h2 class='profile--container__username'><%= @user.username.capitalize %></h2>
+    <p class='profile--container__bio'><%= @user.bio %></p>
+    <%= link_to @user.email do %>
+    <p><i class="far fa-envelope"></i> <%= @user.email %></p>
+    <% end %>
+    <div class="profile--container__plays">
+      <hr><p>instruments</p><hr>
     </div>
-    <p>Bio</p>
-    <p><%= @user.bio %></p>
-    <p>Instruments played:</p>
-    <ul>
+    <div class="profile--container__instruments">
       <% @user.instruments_played.each do |instrument| %>
-        <li><%= instrument %></li>
+        <p><%= instrument %></p>
       <% end %>
-    </ul>
-    <p>Email: <%= @user.email %></p>
+      <p>guitar</p>
+      <p>french horn</p>
+      <p>drums</p>
+      <p>banjo</p>
+    </div>
+  </div>
+  <div class="jams--attending">
+  <% Booking.where(user_id: @user).each do |booking|%>
+    <%= link_to jam_path(booking.jam) do %>
+      <div class="jams--attending__booking">
+      <%= cl_image_tag booking.jam.photo.key, height: 80, width: 80, crop: :fill %>
+        <div class="jams--attending__booking__info">
+          <div class="jams--attending__booking__info__title">
+            <% if (booking.jam.title.length > 25) %>
+              <h5> <%= booking.jam.title[0,25] %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+            <% else %>
+              <h5> <%= booking.jam.title %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+            <% end %>
+          </div>
+
+          <p class='jams--attending__booking__info__description'> <%= booking.jam.description %></p>
+          <p class='jams--attending__booking__user__instrument'><span><%= @user.username.capitalize %></span> is attending with <%= booking.instrument %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   </div>
 </div>
