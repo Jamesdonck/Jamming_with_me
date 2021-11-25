@@ -123,7 +123,7 @@
       }
 
       &__info {
-        margin-right: 25px;
+        // margin-right: 25px;
       }
 
       &__info__title {
@@ -147,6 +147,8 @@
         color: #5e5e5e;
         font-weight: lighter;
         font-size: 14px;
+        max-width: fit-content;
+        margin-top: 5px;
       }
 
       .date {
