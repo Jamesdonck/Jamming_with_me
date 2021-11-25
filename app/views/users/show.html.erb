@@ -1,21 +1,15 @@
-<div class="container">
-  <div class="profile">
-    <div class="profile-header">
-      <img src="https://picsum.photos/150">
-      <h2><%= @user.username %></h2>
-      <div>
-        <i class="far fa-edit"></i>
-        <i class="far fa-trash-alt"></i>
-      </div>
-    </div>
-    <p>Bio</p>
-    <p><%= @user.bio %></p>
-    <p>Instruments played:</p>
-    <ul>
-      <% @user.instruments_played.each do |instrument| %>
-        <li><%= instrument %></li>
-      <% end %>
-    </ul>
-    <p>Email: <%= @user.email %></p>
+<div class="profile">
+  <div class="profile-header">
+    <img src="https://picsum.photos/150">
+    <h2><%= @user.username %></h2>
   </div>
+  <p>Bio</p>
+  <p><%= @user.bio %></p>
+  <p>Instruments played:</p>
+  <ul>
+    <% @user.instruments_played.each do |instrument| %>
+      <li><%= instrument %></li>
+    <% end %>
+  </ul>
+  <p>Email: <%= @user.email %></p>
 </div>
