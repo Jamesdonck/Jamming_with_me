@@ -8,7 +8,7 @@
   <div class='jam--container'>
     <div class="jam--container--top">
         <div class="jam--container--top__info">
-          <%= cl_image_tag @jam.photo.key, height: 245, width: 245, crop: :fill %>
+          <%= render "show_jam_photo", jam: @jam %>
           <div class="spacer">
             <div class="jam--container--top__info__text">
               <h5> <%= @jam.title %></h4>
