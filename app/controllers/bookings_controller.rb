@@ -21,6 +21,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:instrument, :jam_id)
+    params.require(:booking).permit(:instrument)
   end
 end
