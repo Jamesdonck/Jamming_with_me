@@ -1,15 +1,22 @@
-<div class="profile">
-  <div class="profile-header">
-    <img src="https://picsum.photos/150">
-    <h2><%= @user.username %></h2>
-  </div>
-  <p>Bio</p>
-  <p><%= @user.bio %></p>
-  <p>Instruments played:</p>
-  <ul>
-    <% @user.instruments_played.each do |instrument| %>
-      <li><%= instrument %></li>
+<div class="user--show--container">
+  <div class="profile--container">
+    <%= cl_image_tag @user.avatar.key, height: 245, width: 245, crop: :fill %>
+    <h2 class='profile--container__username'><%= @user.username.capitalize %></h2>
+    <p class='profile--container__bio'><%= @user.bio %></p>
+    <%= link_to @user.email do %>
+    <p><i class="far fa-envelope"></i> <%= @user.email %></p>
     <% end %>
-  </ul>
-  <p>Email: <%= @user.email %></p>
+    <div class="profile--container__plays">
+      <hr><p>instruments</p><hr>
+    </div>
+    <div class="profile--container__instruments">
+      <% @user.instruments_played.each do |instrument| %>
+        <p><%= instrument %></p>
+      <% end %>
+      <p>guitar</p>
+      <p>french horn</p>
+      <p>drums</p>
+      <p>banjo</p>
+    </div>
+  </div>
 </div>
