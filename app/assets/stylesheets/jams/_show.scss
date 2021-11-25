@@ -1,7 +1,7 @@
-* {
-  padding: 0;
-  margin: 0;
-}
+// * {
+//   padding: 0;
+//   margin: 0;
+// }
 
 .spacer {
   display: flex;
@@ -14,12 +14,18 @@
   }
 }
 
+.map-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  #map {
+    position: absolute;
+    top: 0;
+  }
+}
+
 .jam--container {
   background-color: white;
-
-  #map {
-    height: 200px;
-  }
 
   .back--link {
     font-weight: bold;
@@ -32,7 +38,7 @@
 
   &--top {
     display: flex;
-    margin: 32px;
+    padding: 32px;
     justify-content: space-between;
 
     &__info {
