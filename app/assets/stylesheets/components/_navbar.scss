@@ -52,4 +52,8 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   .dropdown-toggle::after {
     display: none;
   }
+  .logo>a>img {
+    height: 50px;
+    width: auto;
+  }
 }
