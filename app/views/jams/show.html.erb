@@ -15,7 +15,9 @@
               <p class='date'> <%= @jam.date.strftime("%F at %H:%M") %></p>
               <p> <%= @jam.description %></p>
             </div>
-            <%= link_to 'Attend Jam', new_jam_booking_path(@jam.id), class:'btn btn-primary attend' %>
+            <button type="button" class="btn btn-primary attend" data-toggle="modal" data-target="#exampleModal">
+              Attend Jam
+            </button>
           </div>
         </div>
       <%= link_to 'Back', jams_path, class:'back--link' %>
@@ -38,3 +40,4 @@
     </div>
   </div>
 </div>
+<%= render "modal_booking", jam: @jam, booking: @booking, instruments: @instruments %>

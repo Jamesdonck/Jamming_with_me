@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class JamsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show destroy]
   before_action :find_jam, only: :show
@@ -17,6 +20,8 @@ class JamsController < ApplicationController
 
   def show
     authorize @jam
+    @instruments = instruments_list
+    @booking = Booking.new
     @markers = [{
       lat: @jam.latitude,
       lng: @jam.longitude,
@@ -53,5 +58,12 @@ class JamsController < ApplicationController
 
   def find_jam
     @jam = Jam.find(params[:id])
+  end
+
+  def instruments_list
+    url = 'https://raw.githubusercontent.com/dariusk/corpora/master/data/music/instruments.json'
+    instruments_serial = URI.open(url).read
+    results = JSON.parse(instruments_serial)
+    results["instruments"]
   end
 end
