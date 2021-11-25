@@ -4,26 +4,25 @@ class JamsController < ApplicationController
 
   def index
     @jams = policy_scope(Jam)
-    @jams = Jam.geocoded
+    # @jams = Jam.geocoded
     @markers = @jams.geocoded.map do |jam|
       {
         lat: jam.latitude,
         lng: jam.longitude,
         info_window: render_to_string(partial: "info_window", locals: { jam: jam }),
-        image_url: helpers.asset_url('marker.png')
+        image_url: helpers.asset_url('marker.svg')
       }
     end
   end
 
   def show
     authorize @jam
-    @marker =
-      {
-        lat: @jam.latitude,
-        lng: @jam.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { jam: @jam }),
-        image_url: helpers.asset_url('marker.png')
-      }
+    @markers = [{
+      lat: @jam.latitude,
+      lng: @jam.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { jam: @jam }),
+      image_url: helpers.asset_url('marker.svg')
+    }]
   end
 
   def new

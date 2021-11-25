@@ -16,6 +16,13 @@
         <% end %>
   </div>
 
+  <% unless current_page?(root_path) %>
+    <% coordinates = Geocoder.search('lisbon').first.coordinates %>
+    <div id="city-name" data-lat="<%= coordinates[0] %>" data-lng="<%= coordinates[1] %>">
+        <h1><%= "LISBON" %></h1>
+    </div>
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
