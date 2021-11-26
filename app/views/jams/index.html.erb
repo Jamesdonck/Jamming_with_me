@@ -1,24 +1,25 @@
 <div class="container-fullscreen">
-  <div class="row">
-    <div class="col-12" >
-      <% @jams.each do |jam| %>
-        <%= link_to jam_path(jam) do%>
-          <div class="jam-card">
-            <%= render "index_jam_photo", jam: jam %>
-            <div class="jam-info">
-              <h5><%= jam.title %></h2>
-              <p class='date'><%= jam.date.strftime("%F at %H:%M")  %></p>
-              <p><%= jam.location %></p>
+      <% if @jams.empty? %>
+        <%= render "no_jams", city: @city %>
+      <% else %>
+        <% @jams.each do |jam| %>
+          <%= link_to jam_path(jam) do%>
+            <div class="jam-card" data-id="<%= jam.id %>">
+              <%= render "index_jam_photo", jam: jam %>
+              <div class="jam-info">
+                <h5><%= jam.title %></h2>
+                <p class='date'><%= jam.date.strftime("%F at %H:%M")  %></p>
+                <p><%= jam.location %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-    </div>
-  </div>
+</div>
   <div class="map-index">
     <div id="map"
       style="width: 100%; height: 100vh;"
+      data-center="<%= @center_coordinates.reverse.to_json %>"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
-</div>

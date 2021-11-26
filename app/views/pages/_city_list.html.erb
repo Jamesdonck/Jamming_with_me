@@ -1,0 +1,20 @@
+<% cities = [{
+    name: 'Lisboa',
+    url: 'https://i0.wp.com/www.eurodicas.com.br/wp-content/uploads/2020/06/morar-em-lisboa.jpg?w=750&ssl=1'
+  },
+  {
+    name: 'Porto',
+    url: 'https://cdn.e-konomista.pt/uploads/2018/05/porto-1.jpg'
+  },
+  {
+    name: 'Coimbra',
+    url: 'https://cidadaniatuttoaposto.com.br/wp-content/uploads/2020/03/coimbra.jpg'
+  }] %>
+
+<% cities.each do |city| %>
+ <%= link_to jams_path(params: { search: {city: city[:name]}}) do %>
+    <div class="card-city" style="background-image:url('<%= city[:url] %>')">
+      <h1><%= city[:name].upcase %></h1>
+    </div>
+  <% end %>
+<% end  %>
