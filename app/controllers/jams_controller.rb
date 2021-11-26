@@ -6,9 +6,11 @@ class JamsController < ApplicationController
   before_action :find_jam, only: :show
 
   def index
-    redirect_to root_path if params[:search].nil?
+    if params[:search].nil? || params[:search][:lat].nil?
+      redirect_to root_path, alert: "Sorry! Couldn't find the city..."
+    end
     @city = params[:search][:city]
-    @center_coordinates = Geocoder.search(@city).first.coordinates
+    @center_coordinates = [params[:search][:lat].to_f, params[:search][:lng].to_f]
     @jams = Jam.near(@center_coordinates, 50)
     @jams = policy_scope(@jams)
     @markers = @jams.geocoded.map { |jam| create_marker(jam) }
@@ -49,7 +51,7 @@ class JamsController < ApplicationController
   private
 
   def jam_params
-    params.require(:jam).permit(:location, :title, :description, :date, :photo)
+    params.require(:jam).permit(:location, :title, :description, :date, :photo, :latitude, :longitude)
   end
 
   def find_jam

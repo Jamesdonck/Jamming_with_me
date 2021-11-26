@@ -12,7 +12,11 @@
   }] %>
 
 <% cities.each do |city| %>
- <%= link_to jams_path(params: { search: {city: city[:name]}}) do %>
+  <% coords = Geocoder.search(city[:name]).first.coordinates  %>
+  <%= link_to jams_path(params: {search: {
+                                  city: city[:name],
+                                  lat: coords[0],
+                                  lng: coords[1]}}) do %>
     <div class="card-city" style="background-image:url('<%= city[:url] %>')">
       <h1><%= city[:name].upcase %></h1>
     </div>

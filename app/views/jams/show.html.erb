@@ -21,7 +21,7 @@
             </button>
           </div>
         </div>
-      <%= link_to 'Back', :back, class:'back--link' %>
+      <%= link_to 'Back', jams_path(params: {search: {lat: @jam.latitude, lng: @jam.longitude}}), class:'back--link' %>
     </div>
 
     <h3>Atendees:</h3>
