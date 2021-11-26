@@ -19,6 +19,7 @@ ActiveStorage.start()
 
 // Import CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { showForm, closeForm } from "../components/form"
 // import 'bootstrap'
 // External imports
 
@@ -29,4 +30,6 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  showForm();
+  closeForm();
 });
