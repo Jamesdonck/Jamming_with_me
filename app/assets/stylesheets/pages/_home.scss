@@ -25,7 +25,7 @@
   }
 }
 
-.location-home {
+.search-home {
   form {
     display: flex;
     ::placeholder {
@@ -43,114 +43,38 @@
 
 .city-list {
   display: grid;
-  grid-template-columns: repeat(3, 34vw);
-  position: relative;
-  overflow: hidden;
-  margin-left: -10px;
-
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: repeat(auto-fill, 300px);
+  grid-gap: 50px;
+  justify-content: center;
+  margin-top: 30px;
   a {
     text-decoration: none;
   }
 }
 
-.lisboa {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(255, 255, 255, 0) 40%
-    ),
-    url("https://i0.wp.com/www.eurodicas.com.br/wp-content/uploads/2020/06/morar-em-lisboa.jpg?w=750&ssl=1");
-  background-size: cover;
-
-  &:hover {
-    background-image: linear-gradient(
-        0deg,
-        rgba(84, 201, 255, 0.3) 40%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      url("https://i0.wp.com/www.eurodicas.com.br/wp-content/uploads/2020/06/morar-em-lisboa.jpg?w=750&ssl=1");
-    transition: all 0.4s cubic-bezier(0.3, 0.59, 0.25, 1);
-  }
-}
-
-.porto {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(255, 255, 255, 0) 40%
-    ),
-    url("https://cdn.e-konomista.pt/uploads/2018/05/porto-1.jpg");
-  background-size: cover;
-
-  &:hover {
-    background-image: linear-gradient(
-        0deg,
-        rgba(84, 201, 255, 0.3) 40%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      url("https://cdn.e-konomista.pt/uploads/2018/05/porto-1.jpg");
-    transition: all 0.4s cubic-bezier(0.3, 0.59, 0.25, 1);
-  }
-}
-
-.coimbra {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0) 10%,
-      rgba(255, 255, 255, 0) 40%
-    ),
-    url("https://cidadaniatuttoaposto.com.br/wp-content/uploads/2020/03/coimbra.jpg");
-  background-size: cover;
-
-  &:hover {
-    background-image: linear-gradient(
-        0deg,
-        rgba(84, 201, 255, 0.3) 40%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      url("https://cidadaniatuttoaposto.com.br/wp-content/uploads/2020/03/coimbra.jpg");
-    transition: all 0.4s cubic-bezier(0.3, 0.59, 0.25, 1);
-  }
-}
-
 .card-city {
   background-size: cover;
-  height: 50vh;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0);
-  padding-bottom: 0px;
+  width: 100%;
+  height: 100%;
   z-index: 0;
-  margin: 40px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0);
+  word-wrap: break-word;
   transition: z-index 0.2s, all 0.4s cubic-bezier(0.3, 0.59, 0.25, 1);
-  margin-bottom: 10px;
   box-shadow:  0 4px 8px rgba(0,0,0,0.2);
   border-radius: 4px;
-
   h1 {
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 180px;
+    font-size: 120px;
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 0.75;
-    text-align: left;
   }
-
   &:hover {
-    padding-bottom: 100px;
     color: rgba(255, 255, 255, 0.65);
-    margin-left: -20px;
-    margin-right: -20px;
-    transform: scaleX(1.03);
+    transform: scale(1.03);
     transition: z-index 0.2s, all 0.4s cubic-bezier(0.3, 0.59, 0.25, 1);
     z-index: 10;
   }
-}
-
-.card {
-  height: 100px;
-  width: 50px;
-  background-color: grey;
 }
