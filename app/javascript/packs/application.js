@@ -30,3 +30,10 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
 });
+
+import flatpickr from "flatpickr";
+
+flatpickr(".datepicker", {
+
+
+});
