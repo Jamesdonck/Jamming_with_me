@@ -43,9 +43,11 @@ const initMapbox = () => {
     const center = JSON.parse(mapElement.dataset.center);
     const map = buildMap(mapElement, center);
     const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-    listHighlight();
+    if (markers.length > 0) {
+      addMarkersToMap(map, markers);
+      fitMapToMarkers(map, markers);
+      listHighlight();
+    }
   }
 };
 
