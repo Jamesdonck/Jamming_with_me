@@ -26,15 +26,12 @@
                 <p><i class="fas fa-plus"></i> Jam</p>
               <% end %>
             </li>
-            <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link mr-2" %>
+            <li class="nav-item active" id="current-username">
+              <%= current_user.username %>
             </li>
             <li class="nav-item dropdown">
-            <% if current_user.avatar.attached?%>
-	            <%= cl_image_tag current_user.avatar.key, height: 100, width: 100, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: {toggle:"dropdown"} %>
-            <% else %>
-              <%= cl_image_tag "lke5m9c4f9cicunxvcuh", height: 100, width: 100, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: {toggle:"dropdown"} %>
-            <% end %>
+            <% profile_pic = current_user.avatar.attached? ? current_user.avatar.key : 'https://res.cloudinary.com/gmrcp/image/upload/v1637890379/jammin/mascote_qelllv.png' %>
+            <%= cl_image_tag profile_pic, height: 100, width: 100, crop: :fill, class: "avatar dropdown-toggle avatar-clickable", id: "navbarDropdown", data: {toggle:"dropdown"} %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to "User settings", edit_user_registration_path, class: "dropdown-item"  %>

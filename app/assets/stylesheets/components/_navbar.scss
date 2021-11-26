@@ -6,7 +6,7 @@ background: white;
 height: 60px;
 display: flex;
 box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-//z-index: 1;
+z-index: 1;
 //flex-wrap: nowrap;
   .new_jam_btn {
   border-radius: 20px;
@@ -23,16 +23,18 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     margin-left: 0vh;
   }
   .search {
-      display: flex;
-      margin-bottom: -30px;
-    }
+    display: flex;
+  }
+  .search_city {
+    margin-bottom: 0;
+  }
   .button_postfix {
     margin-bottom: -30px;
     font-size: large;
     color: white;
     background-color: rgb(35, 166, 240);
     margin-top: 0px;
-    margin-bottom: 35px;
+     //margin-bottom: 35px;
     height: 38px;
     }
   .navbar-collapse{
@@ -41,6 +43,9 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   #navbarSupportedContent {
     justify-content: flex-end;
     flex-grow: 1;
+  }
+  .navbar-nav {
+    align-items: center !important;
   }
   .navbar-nav p {
     margin-bottom: 0 !important;
@@ -52,8 +57,13 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   .dropdown-toggle::after {
     display: none;
   }
-  .logo>a>img {
+  .logo > a > img {
     height: 50px;
     width: auto;
   }
+}
+
+#current-username {
+  margin-right: 10px;
+  cursor: default;
 }
