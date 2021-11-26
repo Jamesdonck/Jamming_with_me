@@ -36,30 +36,6 @@ for i in 0..5 do
   user.save!
 end
 
-user = User.new(
-  username: 'admin',
-  email: 'admin@admin.com',
-  bio: "I am the admin",
-  password: '123123',
-  password_confirmation: '123123',
-  instruments_played: ['guitar', 'violin']
-)
-image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg")
-user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
-user.save!
-
-user = User.create!(
-  username: 'Jovis',
-  email: 'Jovis@admin.com',
-  bio: "I am Jovis",
-  password: '123456',
-  password_confirmation: '123456',
-  instruments_played: ['guitar', 'violin']
-)
-image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg")
-user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
-user.save!
-
 locations = [
   'Rua Conde Redondo, Lisboa',
   'Av. da Liberdade, Lisboa',
@@ -117,3 +93,30 @@ for i in 0..5 do
   end
   jam.save!
 end
+
+
+# Admin
+
+user = User.new(
+  username: 'admin',
+  email: 'admin@admin.com',
+  bio: "I am the admin",
+  password: '123123',
+  password_confirmation: '123123',
+  instruments_played: ['guitar', 'violin']
+)
+image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg")
+user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
+user.save!
+
+user = User.create!(
+  username: 'Jovis',
+  email: 'Jovis@admin.com',
+  bio: "I am Jovis",
+  password: '123456',
+  password_confirmation: '123456',
+  instruments_played: ['guitar', 'violin']
+)
+image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg")
+user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
+user.save!
