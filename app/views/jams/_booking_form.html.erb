@@ -1,0 +1,9 @@
+<div class="form--card">
+  <%= simple_form_for [@jam, @booking] do |f| %>
+    <div class="ml-2 mb-3">
+      <%= f.input :instrument, collection: current_user.instruments_played %>
+    </div>
+      <%= f.button :submit, class: 'ml-2 btn btn-primary' %>
+      <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-outline-primary btn-none cancel', onclick: 'closeForm()' %>
+  <% end %>
+</div>

@@ -9,6 +9,8 @@ Jam.destroy_all
 puts 'Deleting users...'
 User.destroy_all
 
+instruments = %w[drums bass guitar piano banjo triangle trumpet tambourine violin harp]
+
 profiles = [
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg",
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637757070/tmfpsn2ketgf08n4eiuz.jpg",
@@ -26,7 +28,8 @@ for i in 0..5 do
     email: Faker::Internet.email,
     bio: Faker::Lorem.sentence,
     password: 'topsecret',
-    password_confirmation: 'topsecret'
+    password_confirmation: 'topsecret',
+    instruments_played: instruments.sample(2)
   )
   image = URI.open(profiles[i])
   user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
@@ -38,7 +41,8 @@ user = User.new(
   email: 'admin@admin.com',
   bio: "I am the admin",
   password: '123123',
-  password_confirmation: '123123'
+  password_confirmation: '123123',
+  instruments_played: ['guitar', 'violin']
 )
 image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg")
 user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
@@ -49,7 +53,8 @@ user = User.create!(
   email: 'Jovis@admin.com',
   bio: "I am Jovis",
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  instruments_played: ['guitar', 'violin']
 )
 image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg")
 user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
@@ -85,8 +90,6 @@ urls = [
   #"https://res.cloudinary.com/drfv43ng3/image/upload/v1637756561/ihdkxpsu3byl59y4quca.jpg",
   "https://res.cloudinary.com/drfv43ng3/image/upload/v1637756839/evy5t5zamg1eegofyxrx.jpg"
 ]
-
-instruments = %w[drums bass guitar piano banjo triangle trumpet tambourine violin harp]
 
 puts 'Creating jams'
 for i in 0..5 do

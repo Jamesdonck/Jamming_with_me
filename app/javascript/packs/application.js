@@ -19,6 +19,7 @@ ActiveStorage.start()
 
 // Import CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { showForm, closeForm } from "../components/form"
 import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';
 // import 'bootstrap'
@@ -31,6 +32,8 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  showForm();
+  closeForm();
   if (document.querySelector(".datepicker")) {
     flatpickr(".datepicker",{
       altInput: true,

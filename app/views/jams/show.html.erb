@@ -16,14 +16,26 @@
               <p class='date'> <%= @jam.date.strftime("%F at %H:%M") %></p>
               <p> <%= @jam.description %></p>
             </div>
-            <button type="button" class="btn btn-primary attend" data-toggle="modal" data-target="#exampleModal">
-              Attend Jam
-            </button>
+            <% if (current_user) %>
+              <% if (@jam.bookings.where(user_id: current_user.id)).empty? %>
+                <button type="button" class="btn btn-primary attend">
+                  Attend Jam
+                </button>
+              <% else %>
+                <button type="button" class="btn btn-primary attend disabled" disabled>
+                  Attend Jam
+                </button>
+              <% end %>
+            <% end %>
           </div>
         </div>
       <%= link_to 'Back', :back, class:'back--link' %>
     </div>
-
+    <% if (current_user) %>
+      <div id="new-booking"  style="display:none;" class="mb-5 form--booking" >
+        <%= render "booking_form" %>
+      </div>
+    <% end %>
     <h3>Atendees:</h3>
     <div class="atendees--container">
       <% @jam.bookings.each do |session| %>
