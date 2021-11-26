@@ -5,6 +5,8 @@
     <div class="search-home">
       <%= simple_form_for :search, url: jams_path, method: :get, class: 'form-inline' do |f| %>
         <%= f.input :city, required: true, placeholder: "Where do you want to jam?", label: false %>
+        <%= f.hidden_field :lat, as: :hidden %>
+        <%= f.hidden_field :lng, as: :hidden %>
         <%= f.button :button, 'Go!', {class: 'btn btn-primary mb-3 ml-2'} %>
       <% end %>
     </div>

@@ -6,10 +6,10 @@
   display: flex;
   justify-content: center;
   height: 75vh;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 
   &_content {
-    padding-top: 250px;
+    padding-top: 450px;
   }
 
   h1, h2 {
@@ -17,13 +17,13 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.322);
   }
   h1 {
-    width: clamp(25rem, 100%, 40rem);
-    font-size: clamp(3rem, 7vw, 3.5rem);
+    width: clamp(25rem, 100%, 60rem);
+    font-size: clamp(3rem, 7vw, 5.6rem);
     font-weight: bold;
   }
   h2 {
-    width: clamp(22rem, 100%, 45rem);
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    width: clamp(40rem, 80%, 90rem);
+    font-size: clamp(1.4rem, 2.5vw, 4rem);
     margin-bottom: 1rem;
   }
 }
@@ -36,8 +36,9 @@
     }
   }
   .form-control {
-  width: clamp(18rem, 40vw, 40rem);
-  background-color: rgba(255, 255, 255, 0.3) ;
+    width: clamp(18rem, 40vw, 40rem);
+    background-color: rgba(255, 255, 255, 0.259) ;
+    font-size: 1.4rem;
     &:hover, &:focus {
       background-color: rgba(255, 255, 255, 0.600)
     }
@@ -46,8 +47,8 @@
 
 .city-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  grid-template-rows: repeat(auto-fit, 300px);
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: repeat(auto-fill, 300px);
   grid-gap: 50px;
   justify-content: center;
   justify-items: center;

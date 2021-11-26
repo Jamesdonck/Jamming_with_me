@@ -21,15 +21,14 @@ const initAutocomplete = () => {
     const cityLng = document.getElementById('search_lng');
 
     const form = document.querySelector('.simple_form, .search')
-
     places({
       container: cityInput,
       templates: { value: suggestion => suggestion.city }
     }).configure({
-        type: 'city',
-        aroundLatLngViaIP: false,
-      })
-      .on('change', (event) => {
+      type: 'city',
+      aroundLatLngViaIP: false,
+    })
+    .on('change', (event) => {
         cityInput.textContent = event.suggestion.value;
         cityLat.value = event.suggestion.latlng.lat || '';
         cityLng.value = event.suggestion.latlng.lng || '';

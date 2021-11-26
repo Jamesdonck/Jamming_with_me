@@ -36,30 +36,6 @@ for i in 0..5 do
   user.save!
 end
 
-user = User.new(
-  username: 'admin',
-  email: 'admin@admin.com',
-  bio: "I am the admin",
-  password: '123123',
-  password_confirmation: '123123',
-  instruments_played: ['guitar', 'violin']
-)
-image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg")
-user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
-user.save!
-
-user = User.create!(
-  username: 'Jovis',
-  email: 'Jovis@admin.com',
-  bio: "I am Jovis",
-  password: '123456',
-  password_confirmation: '123456',
-  instruments_played: ['guitar', 'violin']
-)
-image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg")
-user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
-user.save!
-
 locations = [
   'Rua Conde Redondo, Lisboa',
   'Av. da Liberdade, Lisboa',
@@ -93,22 +69,54 @@ urls = [
 
 puts 'Creating jams'
 for i in 0..5 do
+  coords = Geocoder.search(locations[i]).first.coordinates
+  jam_user = User.find(User.pluck(:id).sample)
   jam = Jam.new(
     title: titles[i],
     description: Faker::Hipster.sentence,
-    user: User.find(User.pluck(:id).sample),
+    user: jam_user,
     location: locations[i],
+    latitude: coords[0],
+    longitude: coords[1],
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
   image = URI.open(urls[i])
   jam.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
+  users = User.all.reject { |userr| userr == jam_user }
   rand(1..4).times do
     user = User.find(User.pluck(:id).sample)
     Booking.create!(
-      user: user,
+      user: users.pop,
       jam: jam,
       instrument: user.instruments_played.sample
     )
   end
   jam.save!
 end
+
+
+# Admin
+
+user = User.new(
+  username: 'admin',
+  email: 'admin@admin.com',
+  bio: "I am the admin",
+  password: '123123',
+  password_confirmation: '123123',
+  instruments_played: ['guitar', 'violin']
+)
+image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637765419/far8slte3stzwhekzfrg.jpg")
+user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
+user.save!
+
+user = User.create!(
+  username: 'Jovis',
+  email: 'Jovis@admin.com',
+  bio: "I am Jovis",
+  password: '123456',
+  password_confirmation: '123456',
+  instruments_played: ['guitar', 'violin']
+)
+image = URI.open("https://res.cloudinary.com/drfv43ng3/image/upload/v1637764585/wc9llfevzhoa9xxrcvh6.jpg")
+user.avatar.attach(io: image, filename: "user#{i}.jpg", content_type: 'image/jpg')
+user.save!
