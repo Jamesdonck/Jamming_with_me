@@ -1,0 +1,27 @@
+.instructions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2095d8;
+  margin-top: 20px;
+
+  .card {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+    justify-content: space-around;
+    border: 0px;
+    background-color: #F4F4F4;
+  }
+
+  i {
+    font-size: 100px;
+    color: #2095d8;
+  }
+
+  .friends {
+    text-align: center;
+  }
+}
