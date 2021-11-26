@@ -4,11 +4,14 @@
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: flex-end;
-  flex-flow: column;
-  height: 60vh;
-  margin: 0 auto;
-  padding: 0 30px 10px 30px;
+  justify-content: center;
+  height: 75vh;
+  margin-bottom: 100px;
+
+  &_content {
+    padding-top: 250px;
+  }
+
   h1, h2 {
     color: rgb(255, 255, 255);
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.322);
@@ -34,7 +37,7 @@
   }
   .form-control {
   width: clamp(18rem, 40vw, 40rem);
-  background-color: rgba(255, 255, 255, 0.259) ;
+  background-color: rgba(255, 255, 255, 0.3) ;
     &:hover, &:focus {
       background-color: rgba(255, 255, 255, 0.600)
     }
@@ -43,8 +46,8 @@
 
 .city-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-template-rows: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(auto-fit, 300px);
   grid-gap: 50px;
   justify-content: center;
   justify-items: center;
