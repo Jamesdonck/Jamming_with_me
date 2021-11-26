@@ -93,18 +93,23 @@ urls = [
 
 puts 'Creating jams'
 for i in 0..5 do
+  coords = Geocoder.search(locations[i]).first.coordinates
+  jam_user = User.find(User.pluck(:id).sample)
   jam = Jam.new(
     title: titles[i],
     description: Faker::Hipster.sentence,
-    user: User.find(User.pluck(:id).sample),
+    user: jam_user,
     location: locations[i],
+    latitude: coords[0],
+    longitude: coords[1],
     date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
   )
   image = URI.open(urls[i])
   jam.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
+  users = User.all.reject { |userr| userr == jam_user }
   rand(1..4).times do
     Booking.create!(
-      user: User.find(User.pluck(:id).sample),
+      user: users.pop,
       jam: jam,
       instrument: instruments.sample
     )

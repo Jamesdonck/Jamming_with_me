@@ -11,6 +11,7 @@ class JamsController < ApplicationController
     end
     @city = params[:search][:city]
     @center_coordinates = [params[:search][:lat].to_f, params[:search][:lng].to_f]
+    raise
     @jams = Jam.near(@center_coordinates, 50)
     @jams = policy_scope(@jams)
     @markers = @jams.geocoded.map { |jam| create_marker(jam) }
