@@ -108,10 +108,11 @@ for i in 0..5 do
   jam.photo.attach(io: image, filename: "#{i}.jpg", content_type: 'image/jpg')
   users = User.all.reject { |userr| userr == jam_user }
   rand(1..4).times do
+    user = User.find(User.pluck(:id).sample)
     Booking.create!(
       user: users.pop,
       jam: jam,
-      instrument: instruments.sample
+      instrument: user.instruments_played.sample
     )
   end
   jam.save!
