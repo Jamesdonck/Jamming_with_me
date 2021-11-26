@@ -6,7 +6,8 @@ background: white;
 height: 60px;
 display: flex;
 box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-
+z-index: 1;
+//flex-wrap: nowrap;
   .new_jam_btn {
   border-radius: 20px;
   background-color: $primary;
@@ -14,64 +15,55 @@ box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
   padding-right: 15px !important;
   padding-left: 15px !important;
   margin-right: 20px;
-
     &:hover {
       background-color: #2095d8;
     }
   }
-
   .location {
     margin-left: 0vh;
   }
-
   .search {
-      display: flex;
-      margin-bottom: -30px;
-    }
-
+    display: flex;
+  }
+  .search_city {
+    margin-bottom: 0;
+  }
   .button_postfix {
     margin-bottom: -30px;
     font-size: large;
     color: white;
     background-color: rgb(35, 166, 240);
     margin-top: 0px;
-    margin-bottom: 35px;
+     //margin-bottom: 35px;
     height: 38px;
     }
-
   .navbar-collapse{
     margin-top: 0px;
   }
-
   #navbarSupportedContent {
     justify-content: flex-end;
     flex-grow: 1;
   }
-
+  .navbar-nav {
+    align-items: center !important;
+  }
   .navbar-nav p {
     margin-bottom: 0 !important;
   }
-
   .dropdown-menu {
     right: 0;
     top: 50px;
   }
-
   .dropdown-toggle::after {
     display: none;
   }
+  .logo > a > img {
+    height: 50px;
+    width: auto;
+  }
 }
 
-.navbar-lewagon .navbar-brand img {
-  margin-top: 0px;
-  width: 74px;
-  height: 44px;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-}
-
-#city-name {
-  color: rgba(0, 0, 0, 0.100);
-  font-weight: bolder;
+#current-username {
+  margin-right: 10px;
+  cursor: default;
 }

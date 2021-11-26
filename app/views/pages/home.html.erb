@@ -1,27 +1,14 @@
-
-<div class="banner banner-image">
-  <div class="container" >
-    <h1>Come and Jam with us!</h1>
-    <h2>Meet musicians with the same taste that play the same instruments as you and Jam all day!</h2>
+<div class="banner-home">
+  <h1>Come and Jam with us!</h1>
+  <h2>Meet musicians with the same taste as you and just jam</h2>
+  <div class="search-home">
+    <%= simple_form_for :search, url: jams_path, method: :get, class: 'form-inline' do |f| %>
+      <%= f.input :city, required: true, placeholder: "Where do you want to jam?", label: false %>
+      <%= f.button :button, 'Go!', {class: 'btn btn-outline-success mb-3 ml-2'} %>
+    <% end %>
   </div>
 </div>
+
 <div class="city-list">
-  <%= link_to jams_path do %>
-    <div class="card-city lisboa">
-      <h1>LIS
-      BOA</h1>
-    </div>
-  <% end %>
-  <%= link_to jams_path do %>
-    <div class="card-city porto">
-      <h1>POR
-      TO</h1>
-    </div>
-  <% end %>
-  <%= link_to jams_path do %>
-    <div class="card-city coimbra">
-      <h1>COIM
-      BRA</h1>
-    </div>
-  <% end %>
+  <%= render "city_list" %>
 </div>
