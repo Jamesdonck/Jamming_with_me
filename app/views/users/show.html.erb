@@ -15,25 +15,79 @@
       <% end %>
     </div>
   </div>
-  <div class="jams--attending">
-  <% Booking.where(user_id: @user).each do |booking|%>
-    <%= link_to jam_path(booking.jam) do %>
-      <div class="jams--attending__booking">
-      <%= cl_image_tag booking.jam.photo.key, height: 80, width: 80, crop: :fill %>
-        <div class="jams--attending__booking__info">
-          <div class="jams--attending__booking__info__title">
-            <% if (booking.jam.title.length > 25) %>
-              <h5> <%= booking.jam.title[0,25] %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
-            <% else %>
-              <h5> <%= booking.jam.title %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
-            <% end %>
-          </div>
-
-          <p class='jams--attending__booking__info__description'> <%= booking.jam.description %></p>
-          <p class='jams--attending__booking__user__instrument'><span><%= @user.username.capitalize %></span> is attending with <%= booking.instrument %></p>
-        </div>
+  <% if (@user == current_user) %>
+    <div class="jams--bookings">
+      <div class="jams--created">
+        <% Jam.where(user_id: @user).reverse.each do |jam|%>
+          <%= link_to jam_path(jam) do %>
+            <div class="jams--attending__booking">
+              <%= render "jams/index_jam_photo", jam: jam %>
+              <div class="jams--attending__booking__info">
+                <div class="jams--attending--booking__info__title">
+                  <% if (jam.title.length > 25) %>
+                    <h5> <%= jam.title[0,25] %>...</h5><p class='date'><%= jam.date.strftime("%F at %H:%M") %></p>
+                  <% else %>
+                    <h5> <%= jam.title %></h5><p class='date'><%= jam.date.strftime("%F at %H:%M") %></p>
+                  <% end %>
+                </div>
+                <% if (jam.description.length > 60) %>
+                  <p class='jams--attending__booking__info__description'> <%= jam.description[0,60] %>..</p>
+                <% else %>
+                  <p class='jams--attending__booking__info__description'> <%= jam.description %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+      <div class="jams--attending">
+        <% Booking.where(user_id: @user).reverse.each do |booking|%>
+          <%= link_to jam_path(booking.jam) do %>
+            <div class="jams--attending__booking">
+            <%= cl_image_tag booking.jam.photo.key, height: 150, width: 150, crop: :fill %>
+              <div class="jams--attending__booking__info">
+                <div class="jams--attending__booking__info__title">
+                  <% if (booking.jam.title.length > 25) %>
+                    <h5> <%= booking.jam.title[0,25] %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+                  <% else %>
+                    <h5> <%= booking.jam.title %></h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+                  <% end %>
+                </div>
+                <% if (booking.jam.description.length > 60) %>
+                  <p class='jams--attending__booking__info__description'> <%= booking.jam.description[0,60] %>..</p>
+                <% else %>
+                  <p class='jams--attending__booking__info__description'> <%= booking.jam.description %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% else%>
+    <div class="notUser--jams--attending">
+      <% Booking.where(user_id: @user).reverse.each do |booking|%>
+        <%= link_to jam_path(booking.jam) do %>
+          <div class="notUser--jams--attending__booking">
+          <%= cl_image_tag booking.jam.photo.key, height: 150, width: 150, crop: :fill %>
+            <div class="notUser--jams--attending__booking__info">
+              <div class="notUser--jams--attending__booking__info__title">
+                <% if (booking.jam.title.length > 25) %>
+                  <h5> <%= booking.jam.title[0,25] %>...</h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+                <% else %>
+                  <h5> <%= booking.jam.title %></h5><p class='date'><%= booking.jam.date.strftime("%F at %H:%M") %></p>
+                <% end %>
+              </div>
+              <% if (booking.jam.description.length > 60) %>
+                <p class='notUser--jams--attending__booking__info__description'> <%= booking.jam.description[0,60] %>..</p>
+              <% else %>
+                <p class='notUser--jams--attending__booking__info__description'> <%= booking.jam.description %></p>
+              <% end %>
+              <p class='notUser--jams--attending__booking__user__instrument'><span><%= @user.username.capitalize %></span> is attending with <%= booking.instrument %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
-  </div>
 </div>
