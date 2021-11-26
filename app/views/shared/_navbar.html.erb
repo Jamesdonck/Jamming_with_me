@@ -1,49 +1,48 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%# <img src="https://www.jams-hotel.com/wp-content/uploads/2019/06/jams_logo_black_rgb.png"> %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-lewagon">
+   <div class="logo">
+      <%= link_to root_path, class: "navbar-brand" do %>
+      <img src="https://www.jams-hotel.com/wp-content/uploads/2019/06/jams_logo_black_rgb.png">
     <% end %>
+   </div>
 
+  <% unless current_page?(root_path) %>
     <div class="location">
-        <%= simple_form_for :search, method: :get do |f| %>
-        <%= f.input :city, placeholder: "Where to Jam?", label: false %>
+      <%= simple_form_for :search, url: jams_path, method: :get do |f| %>
+        <%= f.input :city, placeholder: "Where to Jam?", required: true, label: false %>
         <%= f.button :button , {class: 'button_postfix'} do %><i class="fas fa-search"></i><% end %>
-        <% end %>
-      </div>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%=link_to new_jam_path, class:"new_jam_btn nav-link" do %>
-              <p><i class="fas fa-plus"></i> Jam</p>
-            <% end %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+      <% end %>
     </div>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%=link_to new_jam_path, class:"new_jam_btn nav-link" do %>
+                <p><i class="fas fa-plus"></i> Jam</p>
+              <% end %>
+            </li>
+            <li class="nav-item active" id="current-username">
+              <%= current_user.username %>
+            </li>
+            <li class="nav-item dropdown">
+            <% profile_pic = current_user.avatar.attached? ? current_user.avatar.key : 'https://res.cloudinary.com/gmrcp/image/upload/v1637890379/jammin/mascote_qelllv.png' %>
+            <%= cl_image_tag profile_pic, height: 100, width: 100, crop: :fill, class: "avatar dropdown-toggle avatar-clickable", id: "navbarDropdown", data: {toggle:"dropdown"} %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "User settings", edit_user_registration_path, class: "dropdown-item"  %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
   </div>
-</div>
+</nav>
