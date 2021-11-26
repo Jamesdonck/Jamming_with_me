@@ -6,12 +6,12 @@
   display: flex;
   justify-content: flex-end;
   flex-flow: column;
-  height: 50vh;
+  height: 60vh;
   margin: 0 auto;
   padding: 0 30px 10px 30px;
   h1, h2 {
-    color: rgba(255, 255, 255, 0.800);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.322);
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.322);
   }
   h1 {
     width: clamp(25rem, 100%, 40rem);
@@ -29,12 +29,12 @@
   form {
     display: flex;
     ::placeholder {
-      color: rgba(0, 0, 0, 0.800);
+      color: rgb(255, 255, 255);
     }
   }
   .form-control {
   width: clamp(18rem, 40vw, 40rem);
-  background-color: rgba(255, 255, 255, 0.200) ;
+  background-color: rgba(255, 255, 255, 0.259) ;
     &:hover, &:focus {
       background-color: rgba(255, 255, 255, 0.600)
     }
